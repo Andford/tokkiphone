@@ -45,7 +45,7 @@ class CompanionAndMigrationTest {
         assertEquals(13, maskWithId.size)
         assertTrue(maskWithId.all { it == 0xFF.toByte() })
 
-        // Not a device ID: match any NectarLink PC.
+        // Not a device ID: match any Tokkip Phone PC.
         assertArrayEquals(PcCompanion.BEACON_MAGIC, PcCompanion.buildBeaconPayload("abcd"))
         assertArrayEquals(PcCompanion.BEACON_MAGIC, PcCompanion.buildBeaconPayload("0123456789abcdef-fedcba9876543210"))
         assertArrayEquals(PcCompanion.BEACON_MAGIC, PcCompanion.buildBeaconPayload(null))

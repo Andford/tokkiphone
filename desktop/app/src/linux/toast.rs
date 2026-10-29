@@ -663,7 +663,7 @@ fn format_summary(title: &str, attribution: &str) -> String {
     } else if !attribution.trim().is_empty() {
         attribution.trim().to_string()
     } else {
-        "NectarLink".to_string()
+        "Tokkip Phone".to_string()
     }
 }
 
@@ -805,7 +805,7 @@ fn send_notification(
             "/org/freedesktop/Notifications",
             Some("org.freedesktop.Notifications"),
             "Notify",
-            &("NectarLink", replaces_id, icon_path, summary, body, &actions_list, &hints_map, expire_timeout),
+            &("Tokkip Phone", replaces_id, icon_path, summary, body, &actions_list, &hints_map, expire_timeout),
         )?;
         let msg_body = reply_msg.body();
         msg_body.deserialize::<u32>().or_else(|_| msg_body.deserialize::<(u32,)>().map(|(id,)| id))

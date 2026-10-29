@@ -311,7 +311,7 @@ bool install_translator(rust::Str dir, rust::Str language)
             break;
     }
 
-    // NectarLink's own strings, staged beside the executable. A locale with no
+    // Tokkip Phone's own strings, staged beside the executable. A locale with no
     // translation (`nectarlink_es_ES.qm` missing), or English, stays English.
     bool installed = false;
     auto *app = new QTranslator(QCoreApplication::instance());

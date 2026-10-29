@@ -62,7 +62,7 @@ fn render_desktop_entry(exe: &Path) -> String {
     format!(
         "[Desktop Entry]\n\
          Type=Application\n\
-         Name=NectarLink\n\
+         Name=Tokkip Phone\n\
          Comment=Link your Android phone and PC\n\
          Exec={cmd}\n\
          Icon=nectarlink\n\

@@ -3203,7 +3203,7 @@ pub struct NodeOptions {
     pub usb_port: Option<u16>,
 }
 
-/// The NectarLink engine. One per app process.
+/// The Tokkip Phone engine. One per app process.
 #[derive(uniffi::Object)]
 pub struct NectarlinkNode {
     runtime: Runtime,

@@ -78,7 +78,7 @@ private fun parseSecureOverlaySeed(context: Context): UInt? = runCatching {
 /**
  * Reads the phone's active theme seed color (`0xFFRRGGBB` ARGB):
  * 1. If the user selected "Media artwork color" or a preset seed ("honey",
- *    "lavender", "ocean", "sage") in the NectarLink Android app's Appearance
+ *    "lavender", "ocean", "sage") in the Tokkip Phone Android app's Appearance
  *    settings, uses that seed so "My phone's colors" on the PC matches the
  *    phone app's chosen theme.
  * 2. When Dynamic Color is enabled on Android 12+ (`API 31+`), reads the
@@ -134,7 +134,7 @@ fun materialYouAccent(
 }
 
 /**
- * The profile NectarLink runs in when it isn't the phone's main one: "Work" for a work
+ * The profile Tokkip Phone runs in when it isn't the phone's main one: "Work" for a work
  * profile, "Second profile" for another user or profile (a cloned app, Samsung's Dual
  * Messenger). Null in the main profile. Each profile is a device of its own to the PC,
  * with the same phone name, so this tells them apart.
@@ -757,7 +757,7 @@ class NetworkMonitor(context: Context, private val onChange: () -> Unit) {
 }
 
 /**
- * Listens for NectarLink appearance preference changes, media artwork color
+ * Listens for Tokkip Phone appearance preference changes, media artwork color
  * changes, and Material You wallpaper/configuration color changes without polling.
  */
 class AccentMonitor(private val context: Context, private val onChange: (UInt?) -> Unit) {

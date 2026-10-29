@@ -56,7 +56,7 @@ object LinkNotifications {
         } else {
             Intent(Intent.ACTION_VIEW, url.toUri()).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
-        // When NectarLink is in the foreground, Android allows opening the target right away.
+        // When Tokkip Phone is in the foreground, Android allows opening the target right away.
         runCatching { context.startActivity(viewIntent) }
 
         val open = PendingIntent.getActivity(

@@ -912,8 +912,8 @@ Item {
                             iconPath: Icons.globe
                             title: qsTr("Language")
                             description: Qt.platform.os === "linux"
-                                ? qsTr("NectarLink follows the system unless you pick one.")
-                                : qsTr("NectarLink follows Windows unless you pick one.")
+                                ? qsTr("Tokkip Phone follows the system unless you pick one.")
+                                : qsTr("Tokkip Phone follows Windows unless you pick one.")
                             Segmented {
                                 readonly property var other: page.languages.find(
                                     (l) => l.code === Preferences.language && l.code !== "en")
@@ -1000,7 +1000,7 @@ Item {
 
                         Divider { width: parent.width }
 
-                        // Row 2: Nectar Island | Battery alerts
+                        // Row 2: Tokkip Island | Battery alerts
                         Item {
                             id: islandBatteryPairRow
                             width: parent.width
@@ -1016,10 +1016,10 @@ Item {
                                 y: islandBatteryPairRow.splitCols ? Math.round((parent.height - height) / 2) : 0
                                 width: islandBatteryPairRow.colWidth
                                 iconPath: Icons.island
-                                title: qsTr("Nectar Island")
+                                title: qsTr("Tokkip Island")
                                 description: qsTr("Top-screen pill for calls, transfers & media.")
                                 Toggle {
-                                    label: qsTr("Nectar Island")
+                                    label: qsTr("Tokkip Island")
                                     checked: Preferences.nectarIsland
                                     onToggled: (on) => Preferences.nectarIsland = on
                                 }
@@ -1058,7 +1058,7 @@ Item {
                             }
                         }
 
-                        // Sub-row: Granular Nectar Island triggers (Calls, Transfers, Media, Notifications)
+                        // Sub-row: Granular Tokkip Island triggers (Calls, Transfers, Media, Notifications)
                         Column {
                             id: islandTriggersBlock
                             visible: Preferences.nectarIsland
@@ -3219,8 +3219,15 @@ Item {
                         Divider { width: parent.width }
                         ListRow {
                             width: parent.width
+                            iconPath: Icons.info
+                            title: qsTr("Made by Andy (LoperStack), with Tokkip")
+                            description: qsTr("Based on NectarLink by Bee (github.com/thtbee/nectarlink), under the GPL 3.0. Tokkip Phone's source: github.com/Andford/tokkiphone.")
+                        }
+                        Divider { width: parent.width }
+                        ListRow {
+                            width: parent.width
                             iconPath: Icons.desktop
-                            title: qsTr("NectarLink %1").arg(AppController.version)
+                            title: qsTr("Tokkip Phone %1").arg(AppController.version)
                             description: AppController.updateStatus.length > 0
                                          ? AppController.updateStatus
                                          : qsTr("This PC: %1").arg(AppController.deviceName)
@@ -3382,10 +3389,10 @@ Item {
                 muted: true
                 text: Qt.platform.os === "linux"
                     ? (hotspotSheet.networks.length > 0
-                        ? qsTr("Wi-Fi networks this PC has joined before. Your system keeps their passwords; NectarLink never sees them.")
+                        ? qsTr("Wi-Fi networks this PC has joined before. Your system keeps their passwords; Tokkip Phone never sees them.")
                         : qsTr("This PC hasn't saved any Wi-Fi networks yet. Join the phone's hotspot once from your system Wi-Fi list first."))
                     : (hotspotSheet.networks.length > 0
-                        ? qsTr("Wi-Fi networks this PC has joined before. Windows keeps their passwords; NectarLink never sees them.")
+                        ? qsTr("Wi-Fi networks this PC has joined before. Windows keeps their passwords; Tokkip Phone never sees them.")
                         : qsTr("This PC hasn't saved any Wi-Fi networks yet. Join the phone's hotspot once from Windows' Wi-Fi list first."))
             }
             // A PC can have saved dozens of networks: the list scrolls.

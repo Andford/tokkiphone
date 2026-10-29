@@ -43,21 +43,21 @@ Rectangle {
         const s = feature || {}
         switch (lockKind) {
         case "assist":
-            return qsTr("On your phone, open NectarLink › Settings › Control from your PC and turn on the Accessibility service.")
+            return qsTr("On your phone, open Tokkip Phone › Settings › Control from your PC and turn on the Accessibility service.")
         case "elevated":
             return qsTr("Needs Elevated: set up Wireless debugging or connect over USB.")
         case "role":
-            return qsTr("On your phone, set NectarLink as the default SMS/Caller ID app when prompted.")
+            return qsTr("On your phone, set Tokkip Phone as the default SMS/Caller ID app when prompted.")
         case "permission":
             if (s.target === "notification_access")
-                return qsTr("On your phone, open NectarLink and allow Notification access.")
+                return qsTr("On your phone, open Tokkip Phone and allow Notification access.")
             if (s.target === "dnd_access")
-                return qsTr("On your phone, open NectarLink and allow Do Not Disturb access.")
+                return qsTr("On your phone, open Tokkip Phone and allow Do Not Disturb access.")
             if (s.target === "write_settings")
-                return qsTr("On your phone, open NectarLink and allow Modify system settings.")
-            return qsTr("Open NectarLink on your phone and grant this permission in Settings.")
+                return qsTr("On your phone, open Tokkip Phone and allow Modify system settings.")
+            return qsTr("Open Tokkip Phone on your phone and grant this permission in Settings.")
         case "enableAddon":
-            return qsTr("Open Settings › Camera & Audio to set up the NectarLink virtual camera add-on.")
+            return qsTr("Open Settings › Camera & Audio to set up the Tokkip Phone virtual camera add-on.")
         case "enablePath":
             return qsTr("Open Settings › Connection & About and turn on Connect over mobile data.")
         case "enableToggle":

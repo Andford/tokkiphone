@@ -32,9 +32,9 @@ pub struct PairingUri {
 
 #[derive(Debug, thiserror::Error, PartialEq, Eq)]
 pub enum PairingUriError {
-    #[error("not a NectarLink pairing link")]
+    #[error("not a Tokkip Phone pairing link")]
     NotPairing,
-    #[error("pairing link version {0} is not supported; please update NectarLink")]
+    #[error("pairing link version {0} is not supported; please update Tokkip Phone")]
     UnsupportedVersion(String),
     #[error("pairing link is missing {0}")]
     Missing(&'static str),

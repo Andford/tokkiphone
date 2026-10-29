@@ -14,7 +14,7 @@ import androidx.core.graphics.drawable.toBitmap
 /**
  * Behind an "Open with banking pause" home screen shortcut: pauses first,
  * then opens the banking app, for apps that check as they start, before
- * NectarLink could notice them in front.
+ * Tokkip Phone could notice them in front.
  */
 class OpenWithPauseActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {

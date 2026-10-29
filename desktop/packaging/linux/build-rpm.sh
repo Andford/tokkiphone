@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: GPL-3.0-or-later
-# Builds a Fedora/openSUSE .rpm package for NectarLink Desktop from the .deb
+# Builds a Fedora/openSUSE .rpm package for Tokkip Phone Desktop from the .deb
 # that build-deb.sh made, so both install exactly the same files:
 #   dist/nectarlink-<version>-1.<arch>.rpm
 # Needs rpmbuild (the `rpm` package on Debian and Ubuntu) and dpkg-deb.
@@ -69,7 +69,7 @@ Version:        ${VERSION}
 Release:        1
 Summary:        Connect your Android phone and Linux PC over LAN
 License:        GPL-3.0-or-later
-URL:            https://github.com/thtbee/nectarlink
+URL:            https://github.com/Andford/tokkiphone
 BuildArch:      ${RPM_ARCH}
 AutoReqProv:    no
 ${REQUIRES}
@@ -90,7 +90,7 @@ Recommends:     fuse3
 %global _build_id_links none
 
 %description
-NectarLink links your Android phone and Linux desktop over your local
+Tokkip Phone links your Android phone and Linux desktop over your local
 network with end-to-end encryption: clipboard sync, notification
 mirroring, file transfer, screen, camera and audio streaming, and texts
 and calls.

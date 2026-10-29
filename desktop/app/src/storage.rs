@@ -81,7 +81,7 @@ mod imp {
     use crate::state::{Changes, CoreStatus};
     use crate::{core_host, win};
 
-    /// Provider prefix for sync root IDs (`NectarLink!<device_id>`).
+    /// Provider prefix for sync root IDs (`Tokkip Phone!<device_id>`).
     #[cfg(windows)]
     const PROVIDER_PREFIX: &str = "Nectarlink!";
 
@@ -252,7 +252,7 @@ mod imp {
         win::storage::shutdown();
     }
 
-    /// Unregisters all `NectarLink!*` sync roots from Windows (`--uninstall`).
+    /// Unregisters all `Tokkip Phone!*` sync roots from Windows (`--uninstall`).
     #[cfg(windows)]
     pub fn unregister_all() {
         shutdown();

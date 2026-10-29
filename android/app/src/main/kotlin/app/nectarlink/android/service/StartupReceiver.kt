@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withTimeoutOrNull
 
 /**
- * Brings the connection back after the phone restarts or NectarLink is
+ * Brings the connection back after the phone restarts or Tokkip Phone is
  * updated, without waiting for the app to be opened. Starting the core starts
  * the connection service when a PC is paired (Core.start). After an update,
  * the new version also says so in a notification.

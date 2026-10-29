@@ -1,22 +1,11 @@
-# The NectarLink mark
+# The Tokkip Phone mark
 
-The Waggle Dance: two loops, the phone and the PC, around a drop of nectar,
-tilted like the run of a honeybee's waggle dance, which is how bees tell each
-other where to find nectar.
+Tokkip, on a blue tile: the same Tokkip as the rest of the family (Tokkip PC
+uses him on coral), blue so Tokkip Phone is easy to tell apart.
 
 | File | What it is |
 |---|---|
-| `icon.svg` | The full-color app icon: espresso tile, warm glow, honey rim |
-| `icon-flat.svg` | The same without the glow and highlights, for flat contexts |
-| `icon-mono.svg` | The mark alone in white, for one-color uses (notifications, themed icons) |
-| `icon-512.png` | `icon.svg` at 512 × 512 |
+| `icon-512.png` | The app icon at 512 × 512 |
+| `tokkip-256.rgba` | The same at 256 × 256 as raw RGBA bytes: `desktop/app/src/mark.rs` scales it to every size the PC asks for (window, tray, notifications, the .exe) |
 
-The apps draw the mark themselves from the same geometry:
-`desktop/app/src/mark.rs` (the Windows icon, tray and notifications at every
-size) and `android/app/src/main/res/drawable/ic_launcher_*.xml` and
-`ic_notification.xml`.
-
-Colors (Honey palette, `docs/design/tokens.json`): tile `#2C1600`, glow
-`#693C00`, phone loop `#FFF8F3`, PC loop `#FFDDB8`, nectar and rim `#FFB95F`.
-
-The name and the mark are covered by the [trademark policy](../../TRADEMARKS.md).
+The Android icon is `android/app/src/main/res/drawable/ic_launcher_*.xml`.

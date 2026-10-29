@@ -18,7 +18,7 @@ import app.nectarlink.core.WatchFileOffer
  * Play on phone: a PC offers to stream what one of its players plays, or a video file for the
  * phone to play itself. Android doesn't let an
  * app in the background open a screen, so the offer waits in a notification (on the links
- * channel, as links from the PC do); with NectarLink in front, the Watch screen opens at once.
+ * channel, as links from the PC do); with Tokkip Phone in front, the Watch screen opens at once.
  */
 object WatchOffers {
     private const val TAG = "watch"
@@ -35,7 +35,7 @@ object WatchOffers {
         val from = pcName.ifEmpty { context.getString(R.string.your_pc) }
         val watch = WatchActivity.intent(context, pcId, from, player, title, file)
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        // Allowed only while NectarLink is in front; otherwise Android ignores it.
+        // Allowed only while Tokkip Phone is in front; otherwise Android ignores it.
         val opened = runCatching { context.startActivity(watch) }.isSuccess
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) !=
             PackageManager.PERMISSION_GRANTED

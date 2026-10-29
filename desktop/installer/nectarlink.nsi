@@ -1,12 +1,12 @@
 ; SPDX-License-Identifier: GPL-3.0-or-later
 ;
-; The NectarLink installer for Windows (built by scripts/package.ps1).
+; The Tokkip Phone installer for Windows (built by scripts/package.ps1).
 ;
 ; Two ways to run it:
 ;
 ; - Opened by the user: no NSIS pages. It unpacks the app to a temporary
 ;   folder and runs it there, as "Nectarlink Setup.exe" with --setup, which
-;   draws NectarLink's own setup window (desktop/app/src/setup.rs). That
+;   draws Tokkip Phone's own setup window (desktop/app/src/setup.rs). That
 ;   window runs this installer again, elevated, as below.
 ; - With /S (that window, or the app's updater): installs into Program Files
 ;   for every user of the PC, without a window. /PROGRESS=<file> writes each
@@ -35,7 +35,7 @@ SetCompressor /SOLID zlib
 ; APP names the install folder, registry keys and the firewall rule; DISPLAY is
 ; the name people see.
 !define APP "Nectarlink"
-!define DISPLAY "NectarLink"
+!define DISPLAY "Tokkip Phone"
 !define EXE "nectarlink-desktop.exe"
 !define SETUP_EXE "Nectarlink Setup.exe"
 !define UNINSTALL_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP}"
@@ -56,12 +56,12 @@ ShowUninstDetails nevershow
 VIProductVersion "${VERSION}.0"
 VIAddVersionKey "ProductName" "${DISPLAY}"
 VIAddVersionKey "FileDescription" "${DISPLAY} Setup"
-VIAddVersionKey "CompanyName" "The NectarLink contributors"
+VIAddVersionKey "CompanyName" "The Tokkip Phone contributors"
 VIAddVersionKey "LegalCopyright" "GPL-3.0-or-later"
 VIAddVersionKey "FileVersion" "${VERSION}"
 VIAddVersionKey "ProductVersion" "${DISPLAY_VERSION}"
 
-; 1: show NectarLink's own setup window. 0: install now (/S).
+; 1: show Tokkip Phone's own setup window. 0: install now (/S).
 Var Interactive
 ; Where each step is written, for the setup window (/PROGRESS=<file>).
 Var ProgressFile
@@ -114,7 +114,7 @@ Function .onInit
     ${EndIf}
   ${Else}
     StrCpy $Interactive 1
-    ; No NSIS window: the window is NectarLink's own.
+    ; No NSIS window: the window is Tokkip Phone's own.
     SetSilent silent
   ${EndIf}
 FunctionEnd
@@ -192,7 +192,7 @@ Section "Install"
   ; Phones reach this PC over UDP (QUIC) and find it with mDNS.
   !insertmacro Progress "step firewall"
   nsExec::Exec 'netsh advfirewall firewall delete rule name="${FIREWALL_RULE}"'
-  nsExec::Exec 'netsh advfirewall firewall add rule name="${FIREWALL_RULE}" dir=in action=allow program="$INSTDIR\${EXE}" enable=yes profile=private,domain description="Lets paired phones connect to NectarLink."'
+  nsExec::Exec 'netsh advfirewall firewall add rule name="${FIREWALL_RULE}" dir=in action=allow program="$INSTDIR\${EXE}" enable=yes profile=private,domain description="Lets paired phones connect to Tokkip Phone."'
 
   ; Updates without an administrator prompt: a task that runs this app as
   ; SYSTEM to install a newer release, which signed-in users may start but
@@ -212,11 +212,11 @@ Section "Install"
   WriteRegStr HKLM "Software\${APP}" "InstallDir" "$INSTDIR"
   WriteRegStr HKLM "${UNINSTALL_KEY}" "DisplayName" "${DISPLAY}"
   WriteRegStr HKLM "${UNINSTALL_KEY}" "DisplayVersion" "${DISPLAY_VERSION}"
-  WriteRegStr HKLM "${UNINSTALL_KEY}" "Publisher" "The NectarLink contributors"
+  WriteRegStr HKLM "${UNINSTALL_KEY}" "Publisher" "The Tokkip Phone contributors"
   WriteRegStr HKLM "${UNINSTALL_KEY}" "DisplayIcon" "$INSTDIR\${EXE}"
   WriteRegStr HKLM "${UNINSTALL_KEY}" "InstallLocation" "$INSTDIR"
-  WriteRegStr HKLM "${UNINSTALL_KEY}" "URLInfoAbout" "https://github.com/thtbee/nectarlink"
-  ; Windows Settings > Apps opens NectarLink's own uninstall window.
+  WriteRegStr HKLM "${UNINSTALL_KEY}" "URLInfoAbout" "https://github.com/Andford/tokkiphone"
+  ; Windows Settings > Apps opens Tokkip Phone's own uninstall window.
   WriteRegStr HKLM "${UNINSTALL_KEY}" "UninstallString" '"$INSTDIR\${EXE}" --remove'
   WriteRegStr HKLM "${UNINSTALL_KEY}" "QuietUninstallString" '"$INSTDIR\uninstall.exe" /S'
   WriteRegDWORD HKLM "${UNINSTALL_KEY}" "NoModify" 1

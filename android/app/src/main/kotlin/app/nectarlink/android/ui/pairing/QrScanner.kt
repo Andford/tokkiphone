@@ -51,7 +51,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 private const val LINK_PREFIX = "nectarlink://pair?"
 
 /**
- * A camera preview that reports the first NectarLink pairing link it sees.
+ * A camera preview that reports the first Tokkip Phone pairing link it sees.
  * Asks for the camera permission if needed.
  */
 @Composable

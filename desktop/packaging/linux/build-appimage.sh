@@ -40,7 +40,7 @@ fi
 STAGE_DIR="$(mktemp -d -t nectarlink-appimage-XXXXXX)"
 trap 'rm -rf "${STAGE_DIR}"' EXIT
 
-APPDIR="${STAGE_DIR}/NectarLink.AppDir"
+APPDIR="${STAGE_DIR}/Tokkip Phone.AppDir"
 mkdir -p \
     "${APPDIR}/usr/bin" \
     "${APPDIR}/usr/lib" \

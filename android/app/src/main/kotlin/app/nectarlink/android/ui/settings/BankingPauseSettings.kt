@@ -62,7 +62,7 @@ internal fun BankingPauseAccess() {
     var usage by remember { mutableStateOf(BankingPause.hasUsageAccess(context)) }
     var picking by remember { mutableStateOf(false) }
     val paused by BankingPause.paused.collectAsStateWithLifecycle()
-    // Permissions can change in Settings while NectarLink is in the background.
+    // Permissions can change in Settings while Tokkip Phone is in the background.
     LifecycleResumeEffect(Unit) {
         canChange = BankingPause.canChangeSettings(context)
         usage = BankingPause.hasUsageAccess(context)
@@ -131,7 +131,7 @@ internal fun BankingPauseAccess() {
                 picking = false
                 BankingPause.setApps(context, picked)
                 chosen = picked
-                // Elevated can let NectarLink see the app in front right away.
+                // Elevated can let Tokkip Phone see the app in front right away.
                 if (picked.isNotEmpty() && !BankingPause.hasUsageAccess(context)) {
                     Elevated.grantUsageAccess()
                     usage = BankingPause.hasUsageAccess(context)
@@ -205,7 +205,7 @@ private fun Note(text: String, modifier: Modifier = Modifier) {
     Text(text, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = modifier)
 }
 
-/** Apps with a launcher icon, by name, NectarLink left out. */
+/** Apps with a launcher icon, by name, Tokkip Phone left out. */
 private fun launchableApps(context: Context): List<Choosable> {
     val manager = context.packageManager
     val launcher = Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER)

@@ -1423,7 +1423,7 @@ impl ProtocolHandler for PairProtocol {
     }
 }
 
-/// The NectarLink engine. One per app.
+/// The Tokkip Phone engine. One per app.
 ///
 /// Commands are async methods; everything that changes is reported through
 /// [`Node::events`]. Cheap to clone.
@@ -2209,7 +2209,7 @@ impl Node {
 
     /// Whether this device's LocalSend HTTP/HTTPS server is actively bound and
     /// able to receive incoming files (false when turned off, or when TCP port
-    /// 53317 is already owned by a standalone LocalSend process, or by NectarLink
+    /// 53317 is already owned by a standalone LocalSend process, or by Tokkip Phone
     /// in another Android profile, on the same device: that one receives).
     pub fn localsend_receiving(&self) -> bool {
         self.shared.localsend.receiving()

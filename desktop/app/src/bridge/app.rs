@@ -547,7 +547,7 @@ pub fn install_update_in_background() {
                     object.as_mut().set_update_progress(-1.0);
                     object
                         .as_mut()
-                        .set_update_status(QString::from("Installing. NectarLink reopens by itself."));
+                        .set_update_status(QString::from("Installing. Tokkip Phone reopens by itself."));
                 }
                 Err(message) => {
                     object.as_mut().set_update_busy(false);
@@ -747,7 +747,7 @@ impl cxx_qt::Initialize for qobject::AppController {
         self.as_mut().set_data_retention_summary(QString::default());
         self.as_mut().set_localsend_peers_json(QString::from("[]"));
         self.as_mut().set_shelf_items(QString::default());
-        if let Ok(qr) = crate::qr::encode("https://github.com/thtbee/nectarlink/releases/latest") {
+        if let Ok(qr) = crate::qr::encode("https://github.com/Andford/tokkiphone/releases/latest") {
             let svg = format!(
                 "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 {size} {size}\" shape-rendering=\"crispEdges\"><rect width=\"{size}\" height=\"{size}\" fill=\"white\"/><path d=\"{path}\" fill=\"black\"/></svg>",
                 size = qr.size,
@@ -830,16 +830,16 @@ impl cxx_qt::Initialize for qobject::AppController {
         );
 
         let labels = tray::MenuLabels {
-            open: tr!("App", "Open NectarLink"),
+            open: tr!("App", "Open Tokkip Phone"),
             command_palette: tr!("App", "Command palette"),
             shelf: tr!("App", "Toggle Shelf"),
             take_photo: tr!("App", "Take photo with phone"),
             scan_document: tr!("App", "Scan document with phone"),
             find_phone: tr!("App", "Find my phone"),
             open_link: tr!("App", "Open copied link on phone"),
-            quit: tr!("App", "Quit NectarLink"),
+            quit: tr!("App", "Quit Tokkip Phone"),
         };
-        match tray::Tray::create("NectarLink", labels, move |event| on_tray_event(&qt, event)) {
+        match tray::Tray::create("Tokkip Phone", labels, move |event| on_tray_event(&qt, event)) {
             Ok(tray) => self.rust_mut().tray = Some(tray),
             Err(e) => tracing::warn!(error = %e, "no tray icon"),
         }
@@ -1275,13 +1275,13 @@ impl qobject::AppController {
         self.as_mut().set_phone_toggles_revision(toggles_version as i32);
 
         let mut tooltip = match (devices, online) {
-            (0, _) => tr!("App", "NectarLink · no devices paired"),
-            (_, 0) => tr!("App", "NectarLink · not connected"),
+            (0, _) => tr!("App", "Tokkip Phone · no devices paired"),
+            (_, 0) => tr!("App", "Tokkip Phone · not connected"),
             (_, 1) => battery.map_or_else(
-                || tr!("App", "NectarLink · 1 device connected"),
-                |b| tr!("App", "NectarLink · %1", b),
+                || tr!("App", "Tokkip Phone · 1 device connected"),
+                |b| tr!("App", "Tokkip Phone · %1", b),
             ),
-            (_, n) => tr!("App", "NectarLink · %1 devices connected", n),
+            (_, n) => tr!("App", "Tokkip Phone · %1 devices connected", n),
         };
         if waiting_count > 0 {
             tooltip.push_str(&format!(" · {waiting_count} waiting"));
@@ -1894,7 +1894,7 @@ impl qobject::AppController {
             let json = compute_shelf_items_json(idx);
             self.as_mut().set_shelf_items(QString::from(&json));
             self.as_mut().set_shelf_open(true);
-            win::tray::apply_no_activate_style_by_title("NectarLink Shelf");
+            win::tray::apply_no_activate_style_by_title("Tokkip Phone Shelf");
         }
     }
 
@@ -1916,8 +1916,8 @@ impl qobject::AppController {
     }
 
     pub fn style_shelf_window(&self) {
-        win::tray::apply_no_activate_style_by_title("NectarLink Shelf");
-        win::tray::apply_no_activate_style_by_title("Nectar Island");
+        win::tray::apply_no_activate_style_by_title("Tokkip Phone Shelf");
+        win::tray::apply_no_activate_style_by_title("Tokkip Island");
     }
 
     pub fn start_shelf_drag(&self, kind: &QString, id_or_path: &QString, text: &QString) -> bool {
@@ -2210,7 +2210,7 @@ fn find_guide_file_on_disk(file_stem: &str) -> Option<String> {
 fn load_guide_doc_content(raw_key: &str) -> (String, String) {
     let key = raw_key.trim().trim_end_matches(".md").to_ascii_lowercase();
     let top_level_title = match key.as_str() {
-        "overview" => Some(tr!("Guide", "NectarLink overview")),
+        "overview" => Some(tr!("Guide", "Tokkip Phone overview")),
         "setup" => Some(tr!("Guide", "Install and first-time setup")),
         "features" => Some(tr!("Guide", "Features reference")),
         "permissions" => Some(tr!("Guide", "Android permissions and why each is optional")),
@@ -2227,10 +2227,10 @@ fn load_guide_doc_content(raw_key: &str) -> (String, String) {
 
     let (title, body) = match key.as_str() {
         "overview" => (
-            tr!("Guide", "NectarLink overview"),
+            tr!("Guide", "Tokkip Phone overview"),
             tr!(
                 "Guide",
-                "NectarLink links your Android phone and your PC directly on your local network or over a USB cable.\n\n\
+                "Tokkip Phone links your Android phone and your PC directly on your local network or over a USB cable.\n\n\
              How it works\n\
              - Devices discover each other over local Wi-Fi (mDNS) or USB (ADB reverse tunnel) and connect over QUIC (TLS 1.3).\n\
              - Every connection is mutually authenticated using Ed25519 device keys generated on each device.\n\
@@ -2245,10 +2245,10 @@ fn load_guide_doc_content(raw_key: &str) -> (String, String) {
             tr!("Guide", "Install and first-time setup"),
             tr!(
                 "Guide",
-                "1. Install NectarLink on your PC (Windows 11 or Linux) and your Android phone (Android 8.0 or newer).\n\
+                "1. Install Tokkip Phone on your PC (Windows 11 or Linux) and your Android phone (Android 8.0 or newer).\n\
              2. Connect both devices to the same Wi-Fi network, or plug your phone into your PC with a USB cable.\n\
              3. Open the Pair step in the setup walkthrough, or click + (Pair a new device) at the bottom of the left rail.\n\
-             4. Scan the QR code from the NectarLink Android app, or select your phone from the nearby devices list and confirm that the 6-digit code matches on both screens.\n\
+             4. Scan the QR code from the Tokkip Phone Android app, or select your phone from the nearby devices list and confirm that the 6-digit code matches on both screens.\n\
              5. Choose which features to share for that phone and grant only the Android permissions you want to use."
             ),
         ),
@@ -2256,7 +2256,7 @@ fn load_guide_doc_content(raw_key: &str) -> (String, String) {
             tr!("Guide", "Android permissions and why each is optional"),
             tr!(
                 "Guide",
-                "NectarLink never asks for every permission up front. Each feature works independently:\n\n\
+                "Tokkip Phone never asks for every permission up front. Each feature works independently:\n\n\
              - Notification Access: Required only if you want phone notifications, inline replies, and notification-backed chat threads on your PC.\n\
              - SMS and Contacts: Required only if you want to read and send SMS/MMS messages or look up contact names on your PC.\n\
              - Phone and Call Log: Required only if you want incoming call alerts, call history, or dialing from your PC.\n\
@@ -2268,14 +2268,14 @@ fn load_guide_doc_content(raw_key: &str) -> (String, String) {
             tr!("Guide", "Elevated and Assist modes"),
             tr!(
                 "Guide",
-                "Most NectarLink features work in Standard mode with regular Android permissions. Two optional modes unlock deeper system integration:\n\n\
+                "Most Tokkip Phone features work in Standard mode with regular Android permissions. Two optional modes unlock deeper system integration:\n\n\
              Elevated mode (Wireless debugging or root)\n\
              - Captures the phone screen without showing the Android cast confirmation prompt every time.\n\
              - Streams individual phone apps in separate desktop windows (virtual displays).\n\
              - Controls additional system quick toggles.\n\n\
              Assist mode (Android Accessibility Service)\n\
              - Injects mouse clicks, scrolling, and touch gestures when you control your phone from your PC.\n\
-             - NectarLink never reads screen text or logs keystrokes through the Accessibility service."
+             - Tokkip Phone never reads screen text or logs keystrokes through the Accessibility service."
             ),
         ),
         "troubleshooting" => (
@@ -2284,9 +2284,9 @@ fn load_guide_doc_content(raw_key: &str) -> (String, String) {
                 "Guide",
                 "If your phone and PC do not see each other:\n\n\
              1. Open Connection Doctor from Settings › Connection & About or the Command Palette.\n\
-             2. Check that your Wi-Fi network profile in Windows is set to Private rather than Public, or click Fix in Connection Doctor to allow NectarLink through Windows Firewall.\n\
+             2. Check that your Wi-Fi network profile in Windows is set to Private rather than Public, or click Fix in Connection Doctor to allow Tokkip Phone through Windows Firewall.\n\
              3. Verify that both devices are on the same subnet and that guest Wi-Fi client isolation is turned off on your router.\n\
-             4. You can also connect over a USB cable with USB debugging enabled; NectarLink automatically sets up a local tunnel."
+             4. You can also connect over a USB cable with USB debugging enabled; Tokkip Phone automatically sets up a local tunnel."
             ),
         ),
         "privacy" => (
@@ -2312,7 +2312,7 @@ fn load_guide_doc_content(raw_key: &str) -> (String, String) {
              - Settings › Notifications for per-app rules (Show, Silent, or Hidden) and Do Not Disturb sync.\n\
              - Settings › General › Copy one-time codes.\n\n\
              What it needs\n\
-             - Notification Access permission enabled for NectarLink on your Android phone.\n\
+             - Notification Access permission enabled for Tokkip Phone on your Android phone.\n\
              - The per-device Notifications toggle enabled on your PC."
             ),
         ),
@@ -2338,7 +2338,7 @@ fn load_guide_doc_content(raw_key: &str) -> (String, String) {
              Shows incoming and active phone calls on your PC with Answer, Decline, and Reject with SMS actions, plus browsable call history, contacts, and a dialpad.\n\n\
              Where to find it\n\
              - Left navigation rail › Calls.\n\
-             - Incoming call banner on Home and Nectar Island.\n\n\
+             - Incoming call banner on Home and Tokkip Island.\n\n\
              What it needs\n\
              - Phone, Call Log, and Contacts permissions on your Android phone.\n\
              - Call audio stays on your phone (or a headset paired to your phone); Elevated mode on Android 12+ unlocks mute, speakerphone, hold, and keypad controls."
@@ -2355,7 +2355,7 @@ fn load_guide_doc_content(raw_key: &str) -> (String, String) {
              - Settings › General › Sync clipboard to phone.\n\n\
              What it needs\n\
              - Automatic PC-to-phone clipboard send works whenever your phone is connected.\n\
-             - Background phone-to-PC clipboard sync on Android 10+ uses notifications, the NectarLink quick tile, or Elevated mode."
+             - Background phone-to-PC clipboard sync on Android 10+ uses notifications, the Tokkip Phone quick tile, or Elevated mode."
             ),
         ),
         "transfers" => (
@@ -2363,7 +2363,7 @@ fn load_guide_doc_content(raw_key: &str) -> (String, String) {
             tr!(
                 "Guide",
                 "What it does\n\
-             Sends files, folders, links, and text between your phone and PC at local network speed. If your phone is offline when you send, NectarLink places the item in the Waiting to send queue and delivers it automatically as soon as your phone reconnects.\n\n\
+             Sends files, folders, links, and text between your phone and PC at local network speed. If your phone is offline when you send, Tokkip Phone places the item in the Waiting to send queue and delivers it automatically as soon as your phone reconnects.\n\n\
              Where to find it\n\
              - Home › Send files button, drag-and-drop anywhere on the window, Waiting to send card, and Transfers list.\n\
              - Windows File Explorer › right-click › Send to.\n\n\
@@ -2406,7 +2406,7 @@ fn load_guide_doc_content(raw_key: &str) -> (String, String) {
                 "What it does\n\
              Streams your PC's screen to your phone so you can view your desktop from across the room and use your phone as a trackpad or laser pointer.\n\n\
              Where to find it\n\
-             - Started from the NectarLink app on your phone.\n\
+             - Started from the Tokkip Phone app on your phone.\n\
              - Settings › Devices › Share PC screen to phone.\n\n\
              What it needs\n\
              - The per-device Share PC screen to phone switch on your PC, or one-time approval when your phone requests to view your screen."
@@ -2417,7 +2417,7 @@ fn load_guide_doc_content(raw_key: &str) -> (String, String) {
             tr!(
                 "Guide",
                 "What it does\n\
-             Streams your phone camera into the NectarLink Virtual Camera on Windows so Zoom, Teams, Meet, Discord, and OBS can use your phone's rear or front camera at up to 4K.\n\n\
+             Streams your phone camera into the Tokkip Phone Virtual Camera on Windows so Zoom, Teams, Meet, Discord, and OBS can use your phone's rear or front camera at up to 4K.\n\n\
              Where to find it\n\
              - Home › Phone as webcam.\n\
              - Settings › Camera & Audio › Start webcam.\n\n\
@@ -2500,7 +2500,7 @@ fn load_guide_doc_content(raw_key: &str) -> (String, String) {
              - Home › Type on phone.\n\
              - Command Palette › Type on phone with PC keyboard.\n\n\
              What it needs\n\
-             - Assist mode (Accessibility service), the NectarLink input method, or Elevated mode on your phone."
+             - Assist mode (Accessibility service), the Tokkip Phone input method, or Elevated mode on your phone."
             ),
         ),
         "phone-controls" => (
@@ -2531,15 +2531,15 @@ fn load_guide_doc_content(raw_key: &str) -> (String, String) {
             ),
         ),
         "nectar-island" => (
-            tr!("Guide", "Nectar Island"),
+            tr!("Guide", "Tokkip Island"),
             tr!(
                 "Guide",
                 "What it does\n\
              Displays a compact pill at the top center of your primary monitor for incoming calls, live file transfer progress, media playback, and optional notification previews.\n\n\
              Where to find it\n\
-             - Settings › General › Nectar Island.\n\n\
+             - Settings › General › Tokkip Island.\n\n\
              What it needs\n\
-             - Turn on Nectar Island in Settings › General and pick which events should appear."
+             - Turn on Tokkip Island in Settings › General and pick which events should appear."
             ),
         ),
         "timeline" => (
@@ -2562,7 +2562,7 @@ fn load_guide_doc_content(raw_key: &str) -> (String, String) {
                 "What it does\n\
              Opens a keyboard-first search bar over actions, contacts, message threads, mirrorable apps, phone quick toggles, clipboard history, and navigation pages.\n\n\
              Where to find it\n\
-             - Global hotkey Ctrl+Alt+Space (or Ctrl+K inside the NectarLink window).\n\
+             - Global hotkey Ctrl+Alt+Space (or Ctrl+K inside the Tokkip Phone window).\n\
              - Commands in the top bar.\n\n\
              What it needs\n\
              - Works at any time with zero background memory cost when closed."
@@ -2636,7 +2636,7 @@ fn load_guide_doc_content(raw_key: &str) -> (String, String) {
             tr!(
                 "Guide",
                 "What it does\n\
-             Exposes an opt-in localhost HTTP/JSON and Server-Sent Events API on 127.0.0.1 (default port 53320) protected by a bearer token so scripts, CLI tools, and Stream Deck plugins can trigger NectarLink actions.\n\n\
+             Exposes an opt-in localhost HTTP/JSON and Server-Sent Events API on 127.0.0.1 (default port 53320) protected by a bearer token so scripts, CLI tools, and Stream Deck plugins can trigger Tokkip Phone actions.\n\n\
              Where to find it\n\
              - Settings › Connection & About › Local automation API.\n\n\
              What it needs\n\
@@ -2775,7 +2775,7 @@ fn compute_shelf_items_json(current_device_idx: i32) -> String {
         }
     }
 
-    // 3. Scan Downloads\Nectarlink for mirror screenshots ("Screenshot ...") and saved photos.
+    // 3. Scan Downloads\Tokkip Phone for mirror screenshots ("Screenshot ...") and saved photos.
     let dl_dir = core_host::downloads_dir();
     let mut dl_files: Vec<(i64, u64, std::path::PathBuf, String)> = Vec::new();
     if let Ok(entries) = std::fs::read_dir(&dl_dir) {

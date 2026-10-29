@@ -981,6 +981,7 @@ fun SettingsScreen(
                     }
                     SettingRowDivider()
                     Text(stringResource(R.string.about_version, BuildConfig.VERSION_NAME), style = MaterialTheme.typography.bodyMedium)
+                    Text(stringResource(R.string.about_credit), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     CheckForUpdates(updater)
                 }
             }
@@ -1266,7 +1267,7 @@ private fun WriteSettingsAccess(granted: Boolean) {
     }
 }
 
-/** Control from the PC: NectarLink's accessibility service, turned on in Android's settings. */
+/** Control from the PC: Tokkip Phone's accessibility service, turned on in Android's settings. */
 @Composable
 private fun ControlAccess(on: Boolean) {
     val context = LocalContext.current

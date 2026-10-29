@@ -22,7 +22,7 @@ Window {
 
     visible: true
     title: info.app ? qsTr("%1 · %2").arg(info.title).arg(deviceName)
-         : deviceName.length > 0 ? qsTr("%1 · NectarLink").arg(deviceName) : qsTr("Phone screen · NectarLink")
+         : deviceName.length > 0 ? qsTr("%1 · Tokkip Phone").arg(deviceName) : qsTr("Phone screen · Tokkip Phone")
     color: "black"
     minimumWidth: 240
     minimumHeight: 240
@@ -477,7 +477,7 @@ Window {
             wrapMode: Text.WordWrap
             role: "bodySmall"
             color: "white"
-            text: qsTr("To control the phone, turn on Control from your PC in NectarLink's settings on the phone.")
+            text: qsTr("To control the phone, turn on Control from your PC in Tokkip Phone's settings on the phone.")
         }
         Button {
             id: notifyPhoneBtn

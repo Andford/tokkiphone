@@ -1,6 +1,6 @@
 [package]
 name = "nectarlink-cli"
-description = "NectarLink command-line client for development and scripting"
+description = "Tokkip Phone command-line client for development and scripting"
 license = "GPL-3.0-or-later"
 version.workspace = true
 edition.workspace = true

@@ -125,7 +125,7 @@ fn run(updates: mpsc::Receiver<Option<Shown>>) -> windows::core::Result<()> {
         CreateWindowExW(
             WINDOW_EX_STYLE(0),
             w!("Nectarlink.Media"),
-            w!("NectarLink media"),
+            w!("Tokkip Phone media"),
             WS_OVERLAPPED,
             0,
             0,

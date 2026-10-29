@@ -46,7 +46,7 @@ use crate::{
     win::{autostart, http, toast},
 };
 
-const LATEST: &str = "https://api.github.com/repos/thtbee/nectarlink/releases/latest";
+const LATEST: &str = "https://api.github.com/repos/Andford/tokkiphone/releases/latest";
 const FIRST_CHECK: Duration = Duration::from_secs(30);
 const EVERY: Duration = Duration::from_secs(24 * 3600);
 const MAX_INSTALLER: u64 = 400 * 1024 * 1024;
@@ -159,9 +159,9 @@ pub fn check_now(told: bool) -> Option<String> {
             if new {
                 announce(&update);
             }
-            Some(tr!("Updater", "NectarLink %1 is available.", update.version))
+            Some(tr!("Updater", "Tokkip Phone %1 is available.", update.version))
         }
-        Ok(None) => told.then(|| tr!("Updater", "NectarLink is up to date.")),
+        Ok(None) => told.then(|| tr!("Updater", "Tokkip Phone is up to date.")),
         Err(e) => {
             tracing::info!(error = %e, "couldn't check for updates");
             told.then(|| tr!("Updater", "Couldn't check for updates. Check your internet connection."))
@@ -173,9 +173,9 @@ fn announce(update: &Update) {
     toast::show(toast::Toast {
         device: TOAST_GROUP.into(),
         key: update.version.clone(),
-        title: tr!("Updater", "NectarLink %1 is available", update.version),
+        title: tr!("Updater", "Tokkip Phone %1 is available", update.version),
         body: tr!("Updater", "Update now, or later from Settings."),
-        attribution: "NectarLink".into(),
+        attribution: "Tokkip Phone".into(),
         icon: None,
         image: None,
         actions: vec![(ACTION_UPDATE.into(), "Update".into())],
@@ -1096,7 +1096,7 @@ pub fn announce_update(previous: String, shown: bool) {
     tracing::info!(from = previous, to = current, "updated");
     after_start(
         shown,
-        tr!("Updater", "NectarLink is updated to %1", current),
+        tr!("Updater", "Tokkip Phone is updated to %1", current),
         tr!("Updater", "Your phone reconnects on its own."),
     );
 }
@@ -1108,7 +1108,7 @@ pub fn announce_update_failed(shown: bool) {
     after_start(
         shown,
         tr!("Updater", "The update didn't install"),
-        tr!("Updater", "NectarLink is still on the version you had. Try again from Settings."),
+        tr!("Updater", "Tokkip Phone is still on the version you had. Try again from Settings."),
     );
 }
 
@@ -1124,7 +1124,7 @@ fn after_start(shown: bool, title: String, body: String) {
             key: "updated".into(),
             title,
             body,
-            attribution: "NectarLink".into(),
+            attribution: "Tokkip Phone".into(),
             icon: None,
             image: None,
             actions: Vec::new(),
@@ -1171,7 +1171,7 @@ mod tests {
     fn release(tag: &str) -> Release {
         Release {
             tag_name: tag.into(),
-            html_url: "https://github.com/thtbee/nectarlink/releases/tag/v9".into(),
+            html_url: "https://github.com/Andford/tokkiphone/releases/tag/v9".into(),
             draft: false,
             prerelease: false,
             assets: vec![

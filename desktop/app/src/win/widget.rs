@@ -3,7 +3,7 @@
 //! Adaptive Card v1.5 snapshot of the primary paired phone (connection status,
 //! battery level, latest clipboard preview, and quick actions) and dispatches
 //! `Action.Execute` verbs (`ring`, `send_clipboard`, `take_photo`, `open_app`)
-//! to the running NectarLink instance.
+//! to the running Tokkip Phone instance.
 
 #![allow(unsafe_code, dead_code)]
 
@@ -38,7 +38,7 @@ pub const ARG: &str = "--widget-provider";
 /// Widget definition ID declared in `desktop/installer/AppxManifest.xml`.
 pub const WIDGET_ID: &str = "NectarlinkPhoneStatus";
 
-/// COM `CLSID` for the NectarLink Windows Widgets provider
+/// COM `CLSID` for the Tokkip Phone Windows Widgets provider
 /// (`{9C4E1A22-8F3B-4D09-A6E2-1D8F5C3B9E04}`).
 pub const CLSID: GUID = GUID::from_u128(0x9C4E1A22_8F3B_4D09_A6E2_1D8F5C3B9E04);
 
@@ -218,7 +218,7 @@ pub fn render_adaptive_card(state: &WidgetState) -> String {
             },
             {
                 "type": "Action.Execute",
-                "title": "Open NectarLink",
+                "title": "Open Tokkip Phone",
                 "verb": "open_app"
             }
         ]
@@ -229,7 +229,7 @@ pub fn render_adaptive_card(state: &WidgetState) -> String {
 
 /// Maps an Adaptive Card `Action.Execute` verb (`"ring"`, `"send_clipboard"`,
 /// `"take_photo"`, `"open_app"`) to a [`Request`] and queues it for the primary
-/// NectarLink instance when `data_dir` is provided.
+/// Tokkip Phone instance when `data_dir` is provided.
 pub fn handle_action_verb(verb: &str, data_dir: Option<&Path>) -> Result<(), String> {
     let request = match verb.trim() {
         "ring" => Request::Task { action: "find-phone".into() },

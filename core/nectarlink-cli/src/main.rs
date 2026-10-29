@@ -20,7 +20,7 @@ use nectarlink_core::{
 use tokio::sync::broadcast::error::RecvError;
 
 #[derive(Parser, Debug)]
-#[command(name = "nectarlink", version, about = "NectarLink command-line client")]
+#[command(name = "nectarlink", version, about = "Tokkip Phone command-line client")]
 struct Cli {
     /// Where this client keeps its identity and paired devices.
     #[arg(long, global = true, env = "NECTARLINK_DATA_DIR")]
@@ -764,7 +764,7 @@ enum PhotosArg {
         #[arg(long)]
         out: Option<PathBuf>,
     },
-    /// Download one or more full-size photos or videos into Downloads\Nectarlink.
+    /// Download one or more full-size photos or videos into Downloads\Tokkip Phone.
     Get {
         #[arg(required = true)]
         ids: Vec<String>,
@@ -1752,11 +1752,11 @@ fn sample_storage_tree(root: &std::path::Path) {
         ("Documents/notes.txt", b"Shopping list:\n- Coffee beans\n- Oats\n- Sparkling water\n"),
         (
             "Documents/project-plan.md",
-            b"# NectarLink Storage\n\nBrowse phone files directly in File Explorer.\n",
+            b"# Tokkip Phone Storage\n\nBrowse phone files directly in File Explorer.\n",
         ),
         (
             "Download/guide.txt",
-            b"Welcome to NectarLink Phone Storage.\nOpen any file to stream it on demand.\n",
+            b"Welcome to Tokkip Phone Phone Storage.\nOpen any file to stream it on demand.\n",
         ),
         (
             "DCIM/Camera/IMG_20260406_184210.jpg",
@@ -2520,7 +2520,7 @@ async fn start_node(cli: &Cli) -> Result<Node> {
         None => dirs::data_local_dir().context("no local data directory")?.join("Nectarlink").join("cli"),
     };
     let name = cli.name.clone().unwrap_or_else(|| {
-        hostname::get().ok().and_then(|h| h.into_string().ok()).unwrap_or_else(|| "NectarLink CLI".into())
+        hostname::get().ok().and_then(|h| h.into_string().ok()).unwrap_or_else(|| "Tokkip Phone CLI".into())
     });
     let (kind, os, os_ver) = if cli.as_phone {
         (DeviceKind::Phone, "android".into(), "16".into())
@@ -4218,7 +4218,7 @@ async fn pair(node: &Node) -> Result<()> {
     let link = node.pairing_start_qr().await?;
     let uri = link.to_uri();
     print_qr(&uri);
-    println!("\nScan this code in the NectarLink app, or run on another machine:");
+    println!("\nScan this code in the Tokkip Phone app, or run on another machine:");
     println!("  nectarlink join \"{uri}\"\n");
     println!("Waiting for a device (pairing mode ends in 5 minutes)…");
     loop {
@@ -4606,7 +4606,7 @@ async fn play(
         app: app.into(),
         title: Some(if track == 1 { title.to_owned() } else { format!("{title} ({track})") }),
         artist: Some(artist.into()),
-        album: Some("NectarLink Test Album".into()),
+        album: Some("Tokkip Phone Test Album".into()),
         playing,
         duration: Some(length),
         position: Some(position),
@@ -5153,7 +5153,7 @@ fn resolve(node: &Node, query: &str) -> Result<DeviceId> {
     }
 }
 
-/// Resolves a target for `send`: a paired NectarLink device, a discovered
+/// Resolves a target for `send`: a paired Tokkip Phone device, a discovered
 /// LocalSend peer, or a `host[:port]` LocalSend address.
 async fn resolve_send_target(node: &Node, query: &str, default_port: u16) -> Result<(DeviceId, bool)> {
     if let Ok(id) = resolve(node, query)

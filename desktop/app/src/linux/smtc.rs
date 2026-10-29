@@ -179,7 +179,7 @@ impl MprisRoot {
 
     #[zbus(property)]
     fn identity(&self) -> String {
-        "NectarLink".to_owned()
+        "Tokkip Phone".to_owned()
     }
 
     #[zbus(property)]

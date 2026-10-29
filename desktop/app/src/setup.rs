@@ -12,8 +12,8 @@
 //! A program can't delete its own folder, so it first copies itself to a
 //! temporary folder (as `Nectarlink Uninstall.exe`) and carries on from
 //! there, then runs `uninstall.exe /S /PROGRESS=<file>` with administrator
-//! rights, and finally removes this user's NectarLink data. Files received
-//! from phones (`Downloads\Nectarlink`), voice recordings and synced folders
+//! rights, and finally removes this user's Tokkip Phone data. Files received
+//! from phones (`Downloads\Tokkip Phone`), voice recordings and synced folders
 //! belong to the user and are kept.
 //!
 //! The renamed copies matter: the installer closes running copies of
@@ -33,7 +33,7 @@ pub const INSTALLER_ARG: &str = "--installer";
 pub const INSTALLED_ARG: &str = "--installed";
 
 /// Where the Android app is downloaded (the done screen's QR code and link).
-pub const ANDROID_URL: &str = "https://github.com/thtbee/nectarlink/releases/latest";
+pub const ANDROID_URL: &str = "https://github.com/Andford/tokkiphone/releases/latest";
 
 const APP_EXE: &str = if cfg!(windows) { "nectarlink-desktop.exe" } else { "nectarlink-desktop" };
 #[cfg(windows)]
@@ -192,7 +192,7 @@ impl Step {
     /// What the window says while this step runs.
     pub fn label(self) -> &'static str {
         match self {
-            Step::Closing => "Closing NectarLink",
+            Step::Closing => "Closing Tokkip Phone",
             Step::Files => "Copying files",
             #[cfg(not(target_os = "linux"))]
             Step::Firewall => "Allowing through Windows Firewall",
@@ -318,7 +318,7 @@ pub fn remove(installed: &Path, mut on_event: impl FnMut(Event)) -> Outcome {
     if !uninstaller.is_file() {
         return Outcome::Failed(tr!(
             "Setup",
-            "The uninstaller is missing. Reinstall NectarLink, then uninstall it."
+            "The uninstaller is missing. Reinstall Tokkip Phone, then uninstall it."
         ));
     }
     let progress = progress_file("remove");
@@ -385,7 +385,7 @@ pub fn remove(installed: &Path, mut on_event: impl FnMut(Event)) -> Outcome {
         }
         Ok(126 | 127) => Outcome::Declined,
         Ok(code) => Outcome::Failed(tr!("Setup", "Uninstall stopped with code %1.", code)),
-        Err(e) => Outcome::Failed(tr!("Setup", "Couldn't uninstall NectarLink: %1", e)),
+        Err(e) => Outcome::Failed(tr!("Setup", "Couldn't uninstall Tokkip Phone: %1", e)),
     }
 }
 
@@ -405,7 +405,7 @@ pub fn remove_user_data() {
     if let Err(e) = std::fs::remove_dir_all(&data)
         && e.kind() != std::io::ErrorKind::NotFound
     {
-        tracing::warn!(error = %e, "can't remove all of NectarLink's data");
+        tracing::warn!(error = %e, "can't remove all of Tokkip Phone's data");
     }
 }
 

@@ -50,27 +50,27 @@
     </message>
     <message>
         <location filename="../rust_strings.h" line="16"/>
-        <source>NectarLink · %1</source>
+        <source>Tokkip Phone · %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="17"/>
-        <source>NectarLink · %1 devices connected</source>
+        <source>Tokkip Phone · %1 devices connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="18"/>
-        <source>NectarLink · 1 device connected</source>
+        <source>Tokkip Phone · 1 device connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="19"/>
-        <source>NectarLink · no devices paired</source>
+        <source>Tokkip Phone · no devices paired</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="20"/>
-        <source>NectarLink · not connected</source>
+        <source>Tokkip Phone · not connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -80,7 +80,7 @@
     </message>
     <message>
         <location filename="../rust_strings.h" line="22"/>
-        <source>Open NectarLink</source>
+        <source>Open Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -90,7 +90,7 @@
     </message>
     <message>
         <location filename="../rust_strings.h" line="24"/>
-        <source>Quit NectarLink</source>
+        <source>Quit Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -183,7 +183,7 @@
     </message>
     <message>
         <location filename="../../qml/pages/AppsPage.qml" line="92"/>
-        <source>Set up Wireless debugging in NectarLink on the phone to open its apps here.</source>
+        <source>Set up Wireless debugging in Tokkip Phone on the phone to open its apps here.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -792,7 +792,7 @@
     </message>
     <message>
         <location filename="../rust_strings.h" line="61"/>
-        <source>Update NectarLink on %1 to send it images.</source>
+        <source>Update Tokkip Phone on %1 to send it images.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1045,7 +1045,7 @@
     </message>
     <message>
         <location filename="../rust_strings.h" line="102"/>
-        <source>Opened Recordings folder. Start a voice note in NectarLink on %1 to send it here.</source>
+        <source>Opened Recordings folder. Start a voice note in Tokkip Phone on %1 to send it here.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1205,7 +1205,7 @@
     </message>
     <message>
         <location filename="../rust_strings.h" line="134"/>
-        <source>Stream %1&apos;s camera into the NectarLink virtual webcam</source>
+        <source>Stream %1&apos;s camera into the Tokkip Phone virtual webcam</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1866,7 +1866,7 @@
     <name>Doctor</name>
     <message>
         <location filename="../rust_strings.h" line="184"/>
-        <source>%1 Open NectarLink on the phone and keep both on the same network. If the phone asks to run in the background, allow it.</source>
+        <source>%1 Open Tokkip Phone on the phone and keep both on the same network. If the phone asks to run in the background, allow it.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1916,7 +1916,7 @@
     </message>
     <message>
         <location filename="../rust_strings.h" line="194"/>
-        <source>A firewall rule blocks incoming NectarLink connections. Allow it, and your phone can connect.</source>
+        <source>A firewall rule blocks incoming Tokkip Phone connections. Allow it, and your phone can connect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1986,47 +1986,47 @@
     </message>
     <message>
         <location filename="../rust_strings.h" line="208"/>
-        <source>NectarLink can&apos;t show its icon in the top bar</source>
+        <source>Tokkip Phone can&apos;t show its icon in the top bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="209"/>
-        <source>NectarLink is in the top bar</source>
+        <source>Tokkip Phone is in the top bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="210"/>
-        <source>NectarLink isn&apos;t allowed through Windows Firewall</source>
+        <source>Tokkip Phone isn&apos;t allowed through Windows Firewall</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="211"/>
-        <source>NectarLink isn&apos;t allowed through the firewall</source>
+        <source>Tokkip Phone isn&apos;t allowed through the firewall</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="212"/>
-        <source>On Huawei / Honor: open Settings → Battery → App launch, turn off Manage automatically for NectarLink, and keep Auto-launch, Secondary launch, and Run in background on.</source>
+        <source>On Huawei / Honor: open Settings → Battery → App launch, turn off Manage automatically for Tokkip Phone, and keep Auto-launch, Secondary launch, and Run in background on.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="213"/>
-        <source>On OnePlus / OxygenOS: open Settings → Apps → App management → NectarLink → Battery usage and turn on Allow background activity and Allow auto-launch.</source>
+        <source>On OnePlus / OxygenOS: open Settings → Apps → App management → Tokkip Phone → Battery usage and turn on Allow background activity and Allow auto-launch.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="214"/>
-        <source>On Oppo / Realme: open Settings → Apps → App management → NectarLink → Battery usage and turn on Allow background activity and Allow auto-launch.</source>
+        <source>On Oppo / Realme: open Settings → Apps → App management → Tokkip Phone → Battery usage and turn on Allow background activity and Allow auto-launch.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="215"/>
-        <source>On Pixel: open Settings → Apps → See all apps → NectarLink → App battery usage, tap Allow background usage, and choose Unrestricted.</source>
+        <source>On Pixel: open Settings → Apps → See all apps → Tokkip Phone → App battery usage, tap Allow background usage, and choose Unrestricted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="216"/>
-        <source>On Samsung: open Settings → Apps → NectarLink → Battery and choose Unrestricted, then in Device care → Battery → Background usage limits make sure NectarLink is never put to sleep.</source>
+        <source>On Samsung: open Settings → Apps → Tokkip Phone → Battery and choose Unrestricted, then in Device care → Battery → Background usage limits make sure Tokkip Phone is never put to sleep.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2036,12 +2036,12 @@
     </message>
     <message>
         <location filename="../rust_strings.h" line="218"/>
-        <source>On Vivo / OriginOS / Funtouch: open Settings → Battery → Background power consumption management → NectarLink and choose Unrestricted, and allow Autostart.</source>
+        <source>On Vivo / OriginOS / Funtouch: open Settings → Battery → Background power consumption management → Tokkip Phone and choose Unrestricted, and allow Autostart.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="219"/>
-        <source>On Xiaomi / HyperOS / MIUI: open Settings → Apps → Manage apps → NectarLink, turn on Autostart, and set Battery saver to No restrictions.</source>
+        <source>On Xiaomi / HyperOS / MIUI: open Settings → Apps → Manage apps → Tokkip Phone, turn on Autostart, and set Battery saver to No restrictions.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2096,7 +2096,7 @@
     </message>
     <message>
         <location filename="../rust_strings.h" line="230"/>
-        <source>The firewall blocks NectarLink</source>
+        <source>The firewall blocks Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2146,7 +2146,7 @@
     </message>
     <message>
         <location filename="../rust_strings.h" line="240"/>
-        <source>Windows Firewall blocks NectarLink</source>
+        <source>Windows Firewall blocks Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2418,7 +2418,7 @@
     </message>
     <message>
         <location filename="../../qml/pages/FeaturesGuidePage.qml" line="572"/>
-        <source>Every feature in NectarLink, what it needs, and where to find it.</source>
+        <source>Every feature in Tokkip Phone, what it needs, and where to find it.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2504,10 +2504,10 @@
     <name>Guide</name>
     <message>
         <location filename="../rust_strings.h" line="258"/>
-        <source>1. Install NectarLink on your PC (Windows 11 or Linux) and your Android phone (Android 8.0 or newer).
+        <source>1. Install Tokkip Phone on your PC (Windows 11 or Linux) and your Android phone (Android 8.0 or newer).
 2. Connect both devices to the same Wi-Fi network, or plug your phone into your PC with a USB cable.
 3. Open the Pair step in the setup walkthrough, or click + (Pair a new device) at the bottom of the left rail.
-4. Scan the QR code from the NectarLink Android app, or select your phone from the nearby devices list and confirm that the 6-digit code matches on both screens.
+4. Scan the QR code from the Tokkip Phone Android app, or select your phone from the nearby devices list and confirm that the 6-digit code matches on both screens.
 5. Choose which features to share for that phone and grant only the Android permissions you want to use.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2581,9 +2581,9 @@
         <source>If your phone and PC do not see each other:
 
 1. Open Connection Doctor from Settings › Connection &amp; About or the Command Palette.
-2. Check that your Wi-Fi network profile in Windows is set to Private rather than Public, or click Fix in Connection Doctor to allow NectarLink through Windows Firewall.
+2. Check that your Wi-Fi network profile in Windows is set to Private rather than Public, or click Fix in Connection Doctor to allow Tokkip Phone through Windows Firewall.
 3. Verify that both devices are on the same subnet and that guest Wi-Fi client isolation is turned off on your router.
-4. You can also connect over a USB cable with USB debugging enabled; NectarLink automatically sets up a local tunnel.</source>
+4. You can also connect over a USB cable with USB debugging enabled; Tokkip Phone automatically sets up a local tunnel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2620,7 +2620,7 @@ Sensitive capabilities such as Share PC folders, Remote input, and Reverse PC sc
     </message>
     <message>
         <location filename="../rust_strings.h" line="278"/>
-        <source>Most NectarLink features work in Standard mode with regular Android permissions. Two optional modes unlock deeper system integration:
+        <source>Most Tokkip Phone features work in Standard mode with regular Android permissions. Two optional modes unlock deeper system integration:
 
 Elevated mode (Wireless debugging or root)
 - Captures the phone screen without showing the Android cast confirmation prompt every time.
@@ -2629,17 +2629,17 @@ Elevated mode (Wireless debugging or root)
 
 Assist mode (Android Accessibility Service)
 - Injects mouse clicks, scrolling, and touch gestures when you control your phone from your PC.
-- NectarLink never reads screen text or logs keystrokes through the Accessibility service.</source>
+- Tokkip Phone never reads screen text or logs keystrokes through the Accessibility service.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="279"/>
-        <source>Nectar Island</source>
+        <source>Tokkip Island</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="280"/>
-        <source>NectarLink links your Android phone and your PC directly on your local network or over a USB cable.
+        <source>Tokkip Phone links your Android phone and your PC directly on your local network or over a USB cable.
 
 How it works
 - Devices discover each other over local Wi-Fi (mDNS) or USB (ADB reverse tunnel) and connect over QUIC (TLS 1.3).
@@ -2654,7 +2654,7 @@ Capability tiers on Android
     </message>
     <message>
         <location filename="../rust_strings.h" line="281"/>
-        <source>NectarLink never asks for every permission up front. Each feature works independently:
+        <source>Tokkip Phone never asks for every permission up front. Each feature works independently:
 
 - Notification Access: Required only if you want phone notifications, inline replies, and notification-backed chat threads on your PC.
 - SMS and Contacts: Required only if you want to read and send SMS/MMS messages or look up contact names on your PC.
@@ -2665,7 +2665,7 @@ Capability tiers on Android
     </message>
     <message>
         <location filename="../rust_strings.h" line="282"/>
-        <source>NectarLink overview</source>
+        <source>Tokkip Phone overview</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2798,16 +2798,16 @@ What it needs
 Displays a compact pill at the top center of your primary monitor for incoming calls, live file transfer progress, media playback, and optional notification previews.
 
 Where to find it
-- Settings › General › Nectar Island.
+- Settings › General › Tokkip Island.
 
 What it needs
-- Turn on Nectar Island in Settings › General and pick which events should appear.</source>
+- Turn on Tokkip Island in Settings › General and pick which events should appear.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="304"/>
         <source>What it does
-Exposes an opt-in localhost HTTP/JSON and Server-Sent Events API on 127.0.0.1 (default port 53320) protected by a bearer token so scripts, CLI tools, and Stream Deck plugins can trigger NectarLink actions.
+Exposes an opt-in localhost HTTP/JSON and Server-Sent Events API on 127.0.0.1 (default port 53320) protected by a bearer token so scripts, CLI tools, and Stream Deck plugins can trigger Tokkip Phone actions.
 
 Where to find it
 - Settings › Connection &amp; About › Local automation API.
@@ -2826,7 +2826,7 @@ Where to find it
 - Command Palette › Type on phone with PC keyboard.
 
 What it needs
-- Assist mode (Accessibility service), the NectarLink input method, or Elevated mode on your phone.</source>
+- Assist mode (Accessibility service), the Tokkip Phone input method, or Elevated mode on your phone.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2906,7 +2906,7 @@ Where to find it
 - Settings › General › Copy one-time codes.
 
 What it needs
-- Notification Access permission enabled for NectarLink on your Android phone.
+- Notification Access permission enabled for Tokkip Phone on your Android phone.
 - The per-device Notifications toggle enabled on your PC.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2916,7 +2916,7 @@ What it needs
 Opens a keyboard-first search bar over actions, contacts, message threads, mirrorable apps, phone quick toggles, clipboard history, and navigation pages.
 
 Where to find it
-- Global hotkey Ctrl+Alt+Space (or Ctrl+K inside the NectarLink window).
+- Global hotkey Ctrl+Alt+Space (or Ctrl+K inside the Tokkip Phone window).
 - Commands in the top bar.
 
 What it needs
@@ -2978,7 +2978,7 @@ What it needs
     <message>
         <location filename="../rust_strings.h" line="317"/>
         <source>What it does
-Sends files, folders, links, and text between your phone and PC at local network speed. If your phone is offline when you send, NectarLink places the item in the Waiting to send queue and delivers it automatically as soon as your phone reconnects.
+Sends files, folders, links, and text between your phone and PC at local network speed. If your phone is offline when you send, Tokkip Phone places the item in the Waiting to send queue and delivers it automatically as soon as your phone reconnects.
 
 Where to find it
 - Home › Send files button, drag-and-drop anywhere on the window, Waiting to send card, and Transfers list.
@@ -3011,7 +3011,7 @@ Where to find it
 
 What it needs
 - Automatic PC-to-phone clipboard send works whenever your phone is connected.
-- Background phone-to-PC clipboard sync on Android 10+ uses notifications, the NectarLink quick tile, or Elevated mode.</source>
+- Background phone-to-PC clipboard sync on Android 10+ uses notifications, the Tokkip Phone quick tile, or Elevated mode.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3021,7 +3021,7 @@ Shows incoming and active phone calls on your PC with Answer, Decline, and Rejec
 
 Where to find it
 - Left navigation rail › Calls.
-- Incoming call banner on Home and Nectar Island.
+- Incoming call banner on Home and Tokkip Island.
 
 What it needs
 - Phone, Call Log, and Contacts permissions on your Android phone.
@@ -3047,7 +3047,7 @@ What it needs
 Streams your PC&apos;s screen to your phone so you can view your desktop from across the room and use your phone as a trackpad or laser pointer.
 
 Where to find it
-- Started from the NectarLink app on your phone.
+- Started from the Tokkip Phone app on your phone.
 - Settings › Devices › Share PC screen to phone.
 
 What it needs
@@ -3057,7 +3057,7 @@ What it needs
     <message>
         <location filename="../rust_strings.h" line="323"/>
         <source>What it does
-Streams your phone camera into the NectarLink Virtual Camera on Windows so Zoom, Teams, Meet, Discord, and OBS can use your phone&apos;s rear or front camera at up to 4K.
+Streams your phone camera into the Tokkip Phone Virtual Camera on Windows so Zoom, Teams, Meet, Discord, and OBS can use your phone&apos;s rear or front camera at up to 4K.
 
 Where to find it
 - Home › Phone as webcam.
@@ -4041,7 +4041,7 @@ What it needs
     <name>IslandWindow</name>
     <message>
         <location filename="../../qml/IslandWindow.qml" line="16"/>
-        <source>Nectar Island</source>
+        <source>Tokkip Island</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4078,12 +4078,12 @@ What it needs
     </message>
     <message>
         <location filename="../../qml/IslandWindow.qml" line="228"/>
-        <source>Nectar Island · %1</source>
+        <source>Tokkip Island · %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../qml/IslandWindow.qml" line="229"/>
-        <source>Nectar Island · Ready</source>
+        <source>Tokkip Island · Ready</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4113,7 +4113,7 @@ What it needs
     </message>
     <message>
         <location filename="../../qml/IslandWindow.qml" line="258"/>
-        <source>Click to view in NectarLink</source>
+        <source>Click to view in Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4191,7 +4191,7 @@ What it needs
     </message>
     <message>
         <location filename="../rust_strings.h" line="341"/>
-        <source>Update NectarLink on %1.</source>
+        <source>Update Tokkip Phone on %1.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4254,7 +4254,7 @@ What it needs
     </message>
     <message>
         <location filename="../../qml/components/LockChip.qml" line="46"/>
-        <source>On your phone, open NectarLink › Settings › Control from your PC and turn on the Accessibility service.</source>
+        <source>On your phone, open Tokkip Phone › Settings › Control from your PC and turn on the Accessibility service.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4264,32 +4264,32 @@ What it needs
     </message>
     <message>
         <location filename="../../qml/components/LockChip.qml" line="50"/>
-        <source>On your phone, set NectarLink as the default SMS/Caller ID app when prompted.</source>
+        <source>On your phone, set Tokkip Phone as the default SMS/Caller ID app when prompted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../qml/components/LockChip.qml" line="53"/>
-        <source>On your phone, open NectarLink and allow Notification access.</source>
+        <source>On your phone, open Tokkip Phone and allow Notification access.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../qml/components/LockChip.qml" line="55"/>
-        <source>On your phone, open NectarLink and allow Do Not Disturb access.</source>
+        <source>On your phone, open Tokkip Phone and allow Do Not Disturb access.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../qml/components/LockChip.qml" line="57"/>
-        <source>On your phone, open NectarLink and allow Modify system settings.</source>
+        <source>On your phone, open Tokkip Phone and allow Modify system settings.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../qml/components/LockChip.qml" line="58"/>
-        <source>Open NectarLink on your phone and grant this permission in Settings.</source>
+        <source>Open Tokkip Phone on your phone and grant this permission in Settings.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../qml/components/LockChip.qml" line="60"/>
-        <source>Open Settings › Camera &amp; Audio to set up the NectarLink virtual camera add-on.</source>
+        <source>Open Settings › Camera &amp; Audio to set up the Tokkip Phone virtual camera add-on.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4854,12 +4854,12 @@ What it needs
     </message>
     <message>
         <location filename="../rust_strings.h" line="352"/>
-        <source>Recording from %1, saved in Downloads/Nectarlink</source>
+        <source>Recording from %1, saved in Downloads/Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="353"/>
-        <source>Recording from %1, saved in Downloads\Nectarlink</source>
+        <source>Recording from %1, saved in Downloads\Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4869,12 +4869,12 @@ What it needs
     </message>
     <message>
         <location filename="../rust_strings.h" line="355"/>
-        <source>Saved %1 to Downloads/Nectarlink.</source>
+        <source>Saved %1 to Downloads/Tokkip Phone.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="356"/>
-        <source>Saved %1 to Downloads\Nectarlink.</source>
+        <source>Saved %1 to Downloads\Tokkip Phone.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4884,12 +4884,12 @@ What it needs
     </message>
     <message>
         <location filename="../rust_strings.h" line="358"/>
-        <source>Screenshot from %1, saved in Downloads/Nectarlink</source>
+        <source>Screenshot from %1, saved in Downloads/Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="359"/>
-        <source>Screenshot from %1, saved in Downloads\Nectarlink</source>
+        <source>Screenshot from %1, saved in Downloads\Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4904,7 +4904,7 @@ What it needs
     </message>
     <message>
         <location filename="../rust_strings.h" line="362"/>
-        <source>Set up Wireless debugging in NectarLink on the phone to open its apps here.</source>
+        <source>Set up Wireless debugging in Tokkip Phone on the phone to open its apps here.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4914,7 +4914,7 @@ What it needs
     </message>
     <message>
         <location filename="../rust_strings.h" line="364"/>
-        <source>The app didn&apos;t open on the phone. Try again, or open NectarLink on the phone to check Wireless debugging.</source>
+        <source>The app didn&apos;t open on the phone. Try again, or open Tokkip Phone on the phone to check Wireless debugging.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4939,7 +4939,7 @@ What it needs
     </message>
     <message>
         <location filename="../rust_strings.h" line="369"/>
-        <source>This phone&apos;s app doesn&apos;t share its screen yet. Update NectarLink on the phone.</source>
+        <source>This phone&apos;s app doesn&apos;t share its screen yet. Update Tokkip Phone on the phone.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4957,12 +4957,12 @@ What it needs
     </message>
     <message>
         <location filename="../../qml/MirrorWindow.qml" line="25"/>
-        <source>%1 · NectarLink</source>
+        <source>%1 · Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../qml/MirrorWindow.qml" line="25"/>
-        <source>Phone screen · NectarLink</source>
+        <source>Phone screen · Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5028,7 +5028,7 @@ What it needs
     </message>
     <message>
         <location filename="../../qml/MirrorWindow.qml" line="480"/>
-        <source>To control the phone, turn on Control from your PC in NectarLink&apos;s settings on the phone.</source>
+        <source>To control the phone, turn on Control from your PC in Tokkip Phone&apos;s settings on the phone.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5396,7 +5396,7 @@ What it needs
     </message>
     <message>
         <location filename="../../qml/pages/PairingPanel.qml" line="99"/>
-        <source>Install NectarLink</source>
+        <source>Install Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5424,7 +5424,7 @@ What it needs
     </message>
     <message>
         <location filename="../../qml/pages/PairingPanel.qml" line="172"/>
-        <source>Open NectarLink on your phone</source>
+        <source>Open Tokkip Phone on your phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5434,7 +5434,7 @@ What it needs
     </message>
     <message>
         <location filename="../../qml/pages/PairingPanel.qml" line="220"/>
-        <source>On your phone, open NectarLink and choose “Pair nearby”. It shows up here.</source>
+        <source>On your phone, open Tokkip Phone and choose “Pair nearby”. It shows up here.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5545,7 +5545,7 @@ What it needs
     </message>
     <message>
         <location filename="../rust_strings.h" line="387"/>
-        <source>Update NectarLink on %1 to use its microphone.</source>
+        <source>Update Tokkip Phone on %1 to use its microphone.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5598,7 +5598,7 @@ What it needs
     </message>
     <message>
         <location filename="../rust_strings.h" line="397"/>
-        <source>Update NectarLink on %1 to back up its photos.</source>
+        <source>Update Tokkip Phone on %1 to back up its photos.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5671,7 +5671,7 @@ What it needs
     </message>
     <message>
         <location filename="../rust_strings.h" line="411"/>
-        <source>The photo couldn&apos;t be copied. It&apos;s in Downloads\Nectarlink.</source>
+        <source>The photo couldn&apos;t be copied. It&apos;s in Downloads\Tokkip Phone.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5976,7 +5976,7 @@ What it needs
     </message>
     <message>
         <location filename="../rust_strings.h" line="417"/>
-        <source>Update NectarLink on %1 to play on it.</source>
+        <source>Update Tokkip Phone on %1 to play on it.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6038,7 +6038,7 @@ What it needs
     </message>
     <message>
         <location filename="../rust_strings.h" line="426"/>
-        <source>Send to %1 with NectarLink</source>
+        <source>Send to %1 with Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6507,12 +6507,12 @@ What it needs
     </message>
     <message>
         <location filename="../../qml/pages/SettingsPage.qml" line="915"/>
-        <source>NectarLink follows the system unless you pick one.</source>
+        <source>Tokkip Phone follows the system unless you pick one.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../qml/pages/SettingsPage.qml" line="916"/>
-        <source>NectarLink follows Windows unless you pick one.</source>
+        <source>Tokkip Phone follows Windows unless you pick one.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6551,7 +6551,7 @@ What it needs
     <message>
         <location filename="../../qml/pages/SettingsPage.qml" line="1019"/>
         <location filename="../../qml/pages/SettingsPage.qml" line="1022"/>
-        <source>Nectar Island</source>
+        <source>Tokkip Island</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7418,7 +7418,7 @@ What it needs
     </message>
     <message>
         <location filename="../../qml/pages/SettingsPage.qml" line="3223"/>
-        <source>NectarLink %1</source>
+        <source>Tokkip Phone %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7491,7 +7491,7 @@ What it needs
     </message>
     <message>
         <location filename="../../qml/pages/SettingsPage.qml" line="3385"/>
-        <source>Wi-Fi networks this PC has joined before. Your system keeps their passwords; NectarLink never sees them.</source>
+        <source>Wi-Fi networks this PC has joined before. Your system keeps their passwords; Tokkip Phone never sees them.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7501,7 +7501,7 @@ What it needs
     </message>
     <message>
         <location filename="../../qml/pages/SettingsPage.qml" line="3388"/>
-        <source>Wi-Fi networks this PC has joined before. Windows keeps their passwords; NectarLink never sees them.</source>
+        <source>Wi-Fi networks this PC has joined before. Windows keeps their passwords; Tokkip Phone never sees them.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7567,7 +7567,7 @@ What it needs
     </message>
     <message>
         <location filename="../rust_strings.h" line="432"/>
-        <source>Couldn&apos;t uninstall NectarLink: %1</source>
+        <source>Couldn&apos;t uninstall Tokkip Phone: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7582,7 +7582,7 @@ What it needs
     </message>
     <message>
         <location filename="../rust_strings.h" line="435"/>
-        <source>The uninstaller is missing. Reinstall NectarLink, then uninstall it.</source>
+        <source>The uninstaller is missing. Reinstall Tokkip Phone, then uninstall it.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7595,12 +7595,12 @@ What it needs
     <name>SetupWindow</name>
     <message>
         <location filename="../../qml/setup/SetupWindow.qml" line="45"/>
-        <source>Uninstall NectarLink</source>
+        <source>Uninstall Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../qml/setup/SetupWindow.qml" line="45"/>
-        <source>NectarLink Setup</source>
+        <source>Tokkip Phone Setup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7613,12 +7613,12 @@ What it needs
     </message>
     <message>
         <location filename="../../qml/setup/SetupWindow.qml" line="175"/>
-        <source>NectarLink</source>
+        <source>Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../qml/setup/SetupWindow.qml" line="204"/>
-        <source>Couldn&apos;t uninstall NectarLink</source>
+        <source>Couldn&apos;t uninstall Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7628,27 +7628,27 @@ What it needs
     </message>
     <message>
         <location filename="../../qml/setup/SetupWindow.qml" line="206"/>
-        <source>Uninstalling NectarLink</source>
+        <source>Uninstalling Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../qml/setup/SetupWindow.qml" line="207"/>
-        <source>Updating NectarLink</source>
+        <source>Updating Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../qml/setup/SetupWindow.qml" line="208"/>
-        <source>Installing NectarLink</source>
+        <source>Installing Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../qml/setup/SetupWindow.qml" line="209"/>
-        <source>Uninstall NectarLink?</source>
+        <source>Uninstall Tokkip Phone?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../qml/setup/SetupWindow.qml" line="224"/>
-        <source>Sorry to see you go. This uninstalls NectarLink and deletes its settings and pairings on this PC. Files you received stay in %1.</source>
+        <source>Sorry to see you go. This uninstalls Tokkip Phone and deletes its settings and pairings on this PC. Files you received stay in %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7698,7 +7698,7 @@ What it needs
     </message>
     <message>
         <location filename="../../qml/setup/SetupWindow.qml" line="286"/>
-        <source>Keep NectarLink</source>
+        <source>Keep Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7709,12 +7709,12 @@ What it needs
     </message>
     <message>
         <location filename="../../qml/setup/SetupWindow.qml" line="334"/>
-        <source>NectarLink is uninstalled</source>
+        <source>Tokkip Phone is uninstalled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../qml/setup/SetupWindow.qml" line="334"/>
-        <source>NectarLink is ready</source>
+        <source>Tokkip Phone is ready</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7739,12 +7739,12 @@ What it needs
     </message>
     <message>
         <location filename="../../qml/setup/SetupWindow.qml" line="396"/>
-        <source>Open NectarLink</source>
+        <source>Open Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../qml/setup/SetupWindow.qml" line="456"/>
-        <source>NectarLink goes into Program Files for everyone on this PC. Setup also:</source>
+        <source>Tokkip Phone goes into Program Files for everyone on this PC. Setup also:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7782,7 +7782,7 @@ What it needs
     <name>ShelfWindow</name>
     <message>
         <location filename="../../qml/ShelfWindow.qml" line="16"/>
-        <source>NectarLink Shelf</source>
+        <source>Tokkip Phone Shelf</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8414,7 +8414,7 @@ What it needs
     <name>Transfers</name>
     <message>
         <location filename="../rust_strings.h" line="466"/>
-        <source>Accept in NectarLink to save to Downloads\Nectarlink</source>
+        <source>Accept in Tokkip Phone to save to Downloads\Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8424,12 +8424,12 @@ What it needs
     </message>
     <message>
         <location filename="../rust_strings.h" line="468"/>
-        <source>From %1, opened from Downloads\Nectarlink</source>
+        <source>From %1, opened from Downloads\Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="469"/>
-        <source>From %1, saved in Downloads\Nectarlink</source>
+        <source>From %1, saved in Downloads\Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8457,27 +8457,27 @@ What it needs
     </message>
     <message>
         <location filename="../rust_strings.h" line="474"/>
-        <source>NectarLink %1 is available</source>
+        <source>Tokkip Phone %1 is available</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="475"/>
-        <source>NectarLink %1 is available.</source>
+        <source>Tokkip Phone %1 is available.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="476"/>
-        <source>NectarLink is still on the version you had. Try again from Settings.</source>
+        <source>Tokkip Phone is still on the version you had. Try again from Settings.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="477"/>
-        <source>NectarLink is up to date.</source>
+        <source>Tokkip Phone is up to date.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rust_strings.h" line="478"/>
-        <source>NectarLink is updated to %1</source>
+        <source>Tokkip Phone is updated to %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8690,7 +8690,7 @@ What it needs
     </message>
     <message>
         <location filename="../../qml/pages/WalkthroughPage.qml" line="1554"/>
-        <source>Keep NectarLink ready in the system tray when you sign in.</source>
+        <source>Keep Tokkip Phone ready in the system tray when you sign in.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8736,12 +8736,12 @@ What it needs
     <name>WelcomePage</name>
     <message>
         <location filename="../../qml/pages/WelcomePage.qml" line="36"/>
-        <source>Welcome to NectarLink</source>
+        <source>Welcome to Tokkip Phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../qml/pages/WelcomePage.qml" line="46"/>
-        <source>NectarLink couldn&apos;t start.</source>
+        <source>Tokkip Phone couldn&apos;t start.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

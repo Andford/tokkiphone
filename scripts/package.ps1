@@ -153,7 +153,7 @@ Invoke-Native "windeployqt" {
 }
 
 # Translations. windeployqt stages Qt's own .qm files (in translations/, so its
-# file dialogs and standard buttons follow the system language). NectarLink's
+# file dialogs and standard buttons follow the system language). Tokkip Phone's
 # are compiled from the .ts files the repository keeps; they land beside the
 # executable, which is where the app looks for them.
 # Only the languages Settings offers (i18n::LANGUAGES) ship: a catalogue still being

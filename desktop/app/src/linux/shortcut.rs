@@ -5,7 +5,7 @@
 // On Linux we store those canonical `.lnk` metadata files inside
 // `~/.local/share/nectarlink/send-to/` and mirror them into the three major Linux
 // file managers:
-//   1. GNOME Files (Nautilus): `~/.local/share/nautilus/scripts/Send to <Name> (NectarLink)`
+//   1. GNOME Files (Nautilus): `~/.local/share/nautilus/scripts/Send to <Name> (Tokkip Phone)`
 //   2. KDE Dolphin (KIO ServiceMenus): `~/.local/share/kio/servicemenus/nectarlink-send-<id>.desktop`
 //   3. Cinnamon Nemo / XFCE Thunar (File Manager Actions):
 //      `~/.local/share/file-manager/actions/nectarlink-send-<id>.desktop`
@@ -90,14 +90,14 @@ pub fn write(path: &Path, shortcut: &Shortcut) -> Result<()> {
     let content = format!(
         "[Desktop Entry]\n\
          Type=Application\n\
-         Name=NectarLink\n\
+         Name=Tokkip Phone\n\
          Comment={desc}\n\
          Exec=\"{exec_target}\" {args}\n\
          Icon=nectarlink\n\
          Terminal=false\n\
-         X-NectarLink-Target={raw_target}\n\
-         X-NectarLink-Args={args}\n\
-         X-NectarLink-Comment={desc}\n",
+         X-TokkipPhone-Target={raw_target}\n\
+         X-TokkipPhone-Args={args}\n\
+         X-TokkipPhone-Comment={desc}\n",
     );
     write_file_nofollow(path, &content, 0o644)?;
 
@@ -114,7 +114,7 @@ pub fn write(path: &Path, shortcut: &Shortcut) -> Result<()> {
 pub fn target(path: &Path) -> Option<PathBuf> {
     let text = std::fs::read_to_string(path).ok()?;
     for line in text.lines() {
-        if let Some(rest) = line.strip_prefix("X-NectarLink-Target=") {
+        if let Some(rest) = line.strip_prefix("X-TokkipPhone-Target=") {
             let trimmed = rest.trim();
             if !trimmed.is_empty() {
                 return Some(PathBuf::from(trimmed));
@@ -128,7 +128,7 @@ pub fn target(path: &Path) -> Option<PathBuf> {
 pub fn arguments(path: &Path) -> Option<String> {
     let text = std::fs::read_to_string(path).ok()?;
     for line in text.lines() {
-        if let Some(rest) = line.strip_prefix("X-NectarLink-Args=") {
+        if let Some(rest) = line.strip_prefix("X-TokkipPhone-Args=") {
             return Some(rest.to_string());
         }
     }
@@ -142,11 +142,11 @@ fn read_shortcut(path: &Path) -> Option<Shortcut> {
     let mut args = None;
     let mut comment = String::new();
     for line in text.lines() {
-        if let Some(rest) = line.strip_prefix("X-NectarLink-Target=") {
+        if let Some(rest) = line.strip_prefix("X-TokkipPhone-Target=") {
             target = Some(PathBuf::from(rest));
-        } else if let Some(rest) = line.strip_prefix("X-NectarLink-Args=") {
+        } else if let Some(rest) = line.strip_prefix("X-TokkipPhone-Args=") {
             args = Some(rest.to_string());
-        } else if let Some(rest) = line.strip_prefix("X-NectarLink-Comment=") {
+        } else if let Some(rest) = line.strip_prefix("X-TokkipPhone-Comment=") {
             comment = rest.to_string();
         }
     }
@@ -174,7 +174,7 @@ pub fn recent_dir() -> Option<PathBuf> {
     Some(dir)
 }
 
-/// Synchronize all NectarLink `.lnk` entries in `send_to_dir` into the user's
+/// Synchronize all Tokkip Phone `.lnk` entries in `send_to_dir` into the user's
 /// file-manager context menus (Nautilus scripts, KDE KIO ServiceMenus, Nemo/Thunar actions).
 pub fn sync_file_manager_menus(send_to_dir: &Path) -> Result<()> {
     let Some(data_home) = xdg_data_home() else {
@@ -184,7 +184,7 @@ pub fn sync_file_manager_menus(send_to_dir: &Path) -> Result<()> {
     write_file_manager_integrations(&data_home, &entries)
 }
 
-/// Remove all NectarLink file-manager context menu integrations (Nautilus scripts,
+/// Remove all Tokkip Phone file-manager context menu integrations (Nautilus scripts,
 /// KDE Dolphin KIO ServiceMenus, and Nemo/Thunar File Manager Actions).
 pub fn remove_all_file_manager_menus() -> Result<()> {
     let Some(data_home) = xdg_data_home() else {
@@ -237,15 +237,15 @@ fn format_menu_label(path: &Path) -> String {
     let stem = cleaned.replace("..", "").trim().to_string();
     let stem = if stem.is_empty() { "Phone" } else { stem.as_str() };
     let with_prefix = if stem.starts_with("Send to ") { stem.to_string() } else { format!("Send to {stem}") };
-    if with_prefix.ends_with("(NectarLink)") || with_prefix.contains("(NectarLink ") {
+    if with_prefix.ends_with("(Tokkip Phone)") || with_prefix.contains("(Tokkip Phone ") {
         with_prefix
     } else {
-        format!("{with_prefix} (NectarLink)")
+        format!("{with_prefix} (Tokkip Phone)")
     }
 }
 
 /// Write Nautilus, KDE Dolphin KIO ServiceMenu, and Nemo/Thunar file-manager action files
-/// under `root_data_dir` (e.g. `~/.local/share`) and prune stale NectarLink entries.
+/// under `root_data_dir` (e.g. `~/.local/share`) and prune stale Tokkip Phone entries.
 pub fn write_file_manager_integrations(
     root_data_dir: &Path,
     shortcuts: &[(PathBuf, Shortcut)],
@@ -280,7 +280,7 @@ pub fn write_file_manager_integrations(
         let nautilus_path = nautilus_dir.join(&label);
         let script = format!(
             "#!/usr/bin/env sh\n\
-             # Generated by NectarLink: {comment}\n\
+             # Generated by Tokkip Phone: {comment}\n\
              if [ -n \"${{NAUTILUS_SCRIPT_SELECTED_FILE_PATHS:-}}\" ]; then\n\
                  IFS='\n'\n\
                  set -f\n\
@@ -297,10 +297,10 @@ pub fn write_file_manager_integrations(
             "[Desktop Entry]\n\
              Type=Service\n\
              MimeType=all/allfiles;\n\
-             Actions=NectarLinkSend_{dev_id};\n\
+             Actions=TokkipPhoneSend_{dev_id};\n\
              X-KDE-Priority=TopLevel\n\
              \n\
-             [Desktop Action NectarLinkSend_{dev_id}]\n\
+             [Desktop Action TokkipPhoneSend_{dev_id}]\n\
              Name={label}\n\
              Icon=nectarlink\n\
              Exec=\"{exec_target}\" {args} %F\n"
@@ -325,12 +325,12 @@ pub fn write_file_manager_integrations(
         write_file_nofollow(&action_path, &action_content, 0o644)?;
     }
 
-    // Prune stale Nautilus scripts generated by NectarLink
+    // Prune stale Nautilus scripts generated by Tokkip Phone
     if let Ok(rd) = std::fs::read_dir(&nautilus_dir) {
         for entry in rd.flatten() {
             let p = entry.path();
             if let Some(name) = p.file_name().and_then(|s| s.to_str()) {
-                let is_nectarlink = name.ends_with("(NectarLink)") || name.contains("(NectarLink ");
+                let is_nectarlink = name.ends_with("(Tokkip Phone)") || name.contains("(Tokkip Phone ");
                 if is_nectarlink && !desired_nautilus.contains(name) {
                     let _ = std::fs::remove_file(&p);
                 }
@@ -390,7 +390,7 @@ mod tests {
             arguments: "--send-to pixel9".to_string(),
             description: "Send to Pixel 9".to_string(),
         };
-        let lnk2 = send_to.join("Galaxy S25 (NectarLink).lnk");
+        let lnk2 = send_to.join("Galaxy S25 (Tokkip Phone).lnk");
         let sc2 = Shortcut {
             target: PathBuf::from("/usr/bin/nectarlink-desktop"),
             arguments: "--send-to s25".to_string(),
@@ -400,8 +400,8 @@ mod tests {
         write_file_manager_integrations(tmp.path(), &[(lnk1.clone(), sc1.clone()), (lnk2.clone(), sc2)])
             .expect("write integrations");
 
-        let nautilus_p1 = tmp.path().join("nautilus/scripts/Send to Pixel 9 (NectarLink)");
-        let nautilus_p2 = tmp.path().join("nautilus/scripts/Send to Galaxy S25 (NectarLink)");
+        let nautilus_p1 = tmp.path().join("nautilus/scripts/Send to Pixel 9 (Tokkip Phone)");
+        let nautilus_p2 = tmp.path().join("nautilus/scripts/Send to Galaxy S25 (Tokkip Phone)");
         let kio_p1 = tmp.path().join("kio/servicemenus/nectarlink-send-pixel9.desktop");
         let kio_p2 = tmp.path().join("kio/servicemenus/nectarlink-send-s25.desktop");
         let act_p1 = tmp.path().join("file-manager/actions/nectarlink-send-pixel9.desktop");

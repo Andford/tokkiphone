@@ -117,7 +117,7 @@ data class FeatureGuideEntry(
 )
 
 /**
- * Full catalog of NectarLink features for the Android Features Guide.
+ * Full catalog of Tokkip Phone features for the Android Features Guide.
  */
 object FeaturesGuideCatalog {
     val entries: List<FeatureGuideEntry> = listOf(

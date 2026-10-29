@@ -23,13 +23,13 @@ BEGIN
   BEGIN
     BLOCK "040904B0"
     BEGIN
-      VALUE "CompanyName", "The NectarLink contributors"
-      VALUE "FileDescription", "NectarLink virtual camera"
+      VALUE "CompanyName", "The Tokkip Phone contributors"
+      VALUE "FileDescription", "Tokkip Phone virtual camera"
       VALUE "FileVersion", "{version}"
       VALUE "InternalName", "nectarlink_vcam"
       VALUE "LegalCopyright", "GPL-3.0-or-later"
       VALUE "OriginalFilename", "nectarlink_vcam.dll"
-      VALUE "ProductName", "NectarLink"
+      VALUE "ProductName", "Tokkip Phone"
       VALUE "ProductVersion", "{version}"
     END
   END

@@ -1440,7 +1440,7 @@ class Core(context: Context, private val scope: CoroutineScope) : EventListener 
 
     /**
      * Automatically sends non-sensitive text copied in the background while Elevated mode is running.
-     * Skips clips NectarLink itself wrote from a PC (`PhoneClipboard.isRecentEcho`).
+     * Skips clips Tokkip Phone itself wrote from a PC (`PhoneClipboard.isRecentEcho`).
      */
     fun onElevatedClipboardChanged(text: String, html: String?) {
         if (text.isBlank() || PhoneClipboard.isRecentEcho(text, html)) return
@@ -1896,7 +1896,7 @@ class Core(context: Context, private val scope: CoroutineScope) : EventListener 
             it.pairingJoin(link)
         } catch (e: NectarlinkException) {
             val failure = when (e) {
-                is NectarlinkException.InvalidPairingLink -> PairingFailure.Other("not a NectarLink code")
+                is NectarlinkException.InvalidPairingLink -> PairingFailure.Other("not a Tokkip Phone code")
                 is NectarlinkException.Denied -> PairingFailure.Rejected
                 else -> PairingFailure.Unreachable
             }
@@ -2249,7 +2249,7 @@ class Core(context: Context, private val scope: CoroutineScope) : EventListener 
                     } else {
                         current.outputDevices + app.nectarlink.core.AudioOutputDevice(
                             id = PHONE_SPEAKER_OUTPUT,
-                            name = "Phone speaker (NectarLink)",
+                            name = "Phone speaker (Tokkip Phone)",
                             isDefault = false,
                         )
                     }
@@ -2329,7 +2329,7 @@ class Core(context: Context, private val scope: CoroutineScope) : EventListener 
      * Blocks; call off the main thread.
      */
     fun readWatchFile(pcId: String, offset: Long, length: Long): ByteArray {
-        val running = node ?: throw java.io.IOException("NectarLink isn't running")
+        val running = node ?: throw java.io.IOException("Tokkip Phone isn't running")
         return running.watchFileRead(pcId, offset.toULong(), length.toULong()).data
     }
 

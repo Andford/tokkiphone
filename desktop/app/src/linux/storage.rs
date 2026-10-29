@@ -418,14 +418,14 @@ pub fn format_file_uri(path: &Path) -> String {
     encoded
 }
 
-/// Formats a single GTK3 bookmark entry (`file://<encoded_path> <DeviceName> (NectarLink)`).
+/// Formats a single GTK3 bookmark entry (`file://<encoded_path> <DeviceName> (Tokkip Phone)`).
 pub fn format_gtk_bookmark_line(mount_path: &Path, device_name: &str) -> String {
     let uri = format_file_uri(mount_path);
     let label = sanitize_folder_name(device_name);
-    format!("{uri} {label} (NectarLink)")
+    format!("{uri} {label} (Tokkip Phone)")
 }
 
-/// Upserts a NectarLink device bookmark line in the contents of `~/.config/gtk-3.0/bookmarks`.
+/// Upserts a Tokkip Phone device bookmark line in the contents of `~/.config/gtk-3.0/bookmarks`.
 pub fn upsert_gtk_bookmarks_content(existing: &str, mount_path: &Path, device_name: &str) -> String {
     let uri = format_file_uri(mount_path);
     let prefix = format!("{uri} ");
@@ -452,7 +452,7 @@ pub fn upsert_gtk_bookmarks_content(existing: &str, mount_path: &Path, device_na
     if lines.is_empty() { String::new() } else { format!("{}\n", lines.join("\n")) }
 }
 
-/// Removes a NectarLink device bookmark line matching `mount_path` from `~/.config/gtk-3.0/bookmarks` content.
+/// Removes a Tokkip Phone device bookmark line matching `mount_path` from `~/.config/gtk-3.0/bookmarks` content.
 pub fn remove_gtk_bookmarks_content(existing: &str, mount_path: &Path) -> String {
     let uri = format_file_uri(mount_path);
     let prefix = format!("{uri} ");
@@ -479,11 +479,11 @@ fn escape_xml(s: &str) -> String {
     out
 }
 
-/// Upserts a NectarLink device bookmark in KDE Dolphin / freedesktop `~/.local/share/user-places.xbel`.
+/// Upserts a Tokkip Phone device bookmark in KDE Dolphin / freedesktop `~/.local/share/user-places.xbel`.
 pub fn upsert_xbel_bookmarks_content(existing: &str, mount_path: &Path, device_name: &str) -> String {
     let cleaned = remove_xbel_bookmarks_content(existing, mount_path);
     let uri = escape_xml(&format_file_uri(mount_path));
-    let label = escape_xml(&format!("{} (NectarLink)", sanitize_folder_name(device_name)));
+    let label = escape_xml(&format!("{} (Tokkip Phone)", sanitize_folder_name(device_name)));
     let entry = format!(
         " <bookmark href=\"{uri}\" id=\"nectarlink\"><title>{label}</title><info><metadata owner=\"http://freedesktop.org\"><bookmark:icon name=\"smartphone\"/></metadata></info></bookmark>"
     );
@@ -505,7 +505,7 @@ pub fn upsert_xbel_bookmarks_content(existing: &str, mount_path: &Path, device_n
     }
 }
 
-/// Removes a NectarLink device bookmark matching `mount_path` from `~/.local/share/user-places.xbel` content.
+/// Removes a Tokkip Phone device bookmark matching `mount_path` from `~/.local/share/user-places.xbel` content.
 pub fn remove_xbel_bookmarks_content(existing: &str, mount_path: &Path) -> String {
     if existing.trim().is_empty() {
         return String::new();
@@ -840,7 +840,7 @@ fn clear_stale_mount(mount_path: &Path) {
     }
 }
 
-/// Whether `/proc/self/mounts` text lists a NectarLink FUSE mount at `path`
+/// Whether `/proc/self/mounts` text lists a Tokkip Phone FUSE mount at `path`
 /// (mount points there escape spaces, tabs, newlines and backslashes as octal).
 pub(crate) fn is_listed_mount(mounts: &str, path: &Path) -> bool {
     fn unescape(field: &str) -> String {
@@ -1949,7 +1949,7 @@ pub fn unregister_all() {
         let filtered: Vec<&str> = existing
             .lines()
             .map(str::trim_end)
-            .filter(|line| !line.is_empty() && !line.ends_with(" (NectarLink)"))
+            .filter(|line| !line.is_empty() && !line.ends_with(" (Tokkip Phone)"))
             .collect();
         let updated = if filtered.is_empty() { String::new() } else { format!("{}\n", filtered.join("\n")) };
         let _ = fs::write(&bookmarks_file, updated);
@@ -1958,7 +1958,7 @@ pub fn unregister_all() {
         && let Ok(existing) = fs::read_to_string(&xbel_file)
     {
         let updated = remove_xbel_blocks_matching(&existing, |b| {
-            b.contains("id=\"nectarlink\"") || b.contains("(NectarLink)</title>")
+            b.contains("id=\"nectarlink\"") || b.contains("(Tokkip Phone)</title>")
         });
         let _ = fs::write(&xbel_file, updated);
     }
@@ -1975,7 +1975,7 @@ mod tests {
     fn gtk_bookmark_formatting_upsert_and_removal_preserve_unrelated_entries() {
         let mount = Path::new("/home/alice/Nectarlink/Pixel 9 Pro");
         let line = format_gtk_bookmark_line(mount, "Pixel 9 Pro");
-        assert_eq!(line, "file:///home/alice/Nectarlink/Pixel%209%20Pro Pixel 9 Pro (NectarLink)");
+        assert_eq!(line, "file:///home/alice/Nectarlink/Pixel%209%20Pro Pixel 9 Pro (Tokkip Phone)");
 
         let initial = "file:///home/alice/Documents Documents\nfile:///home/alice/Downloads Downloads\n";
         let with_phone = upsert_gtk_bookmarks_content(initial, mount, "Pixel 9 Pro");
@@ -1992,7 +1992,7 @@ mod tests {
                 .count(),
             1
         );
-        assert!(updated_phone.contains("Pixel 9 Pro Renamed (NectarLink)"));
+        assert!(updated_phone.contains("Pixel 9 Pro Renamed (Tokkip Phone)"));
 
         let cleaned = remove_gtk_bookmarks_content(&updated_phone, mount);
         assert_eq!(cleaned, initial);
@@ -2059,7 +2059,7 @@ mod tests {
                       portal /run/user/1000/doc fuse.portal rw 0 0\n";
         assert!(is_listed_mount(mounts, Path::new("/home/bee/Nectarlink/Pixel 9")));
         assert!(!is_listed_mount(mounts, Path::new("/home/bee/Nectarlink/Galaxy")));
-        assert!(!is_listed_mount(mounts, Path::new("/run/user/1000/doc")), "only NectarLink's own mounts");
+        assert!(!is_listed_mount(mounts, Path::new("/run/user/1000/doc")), "only Tokkip Phone's own mounts");
     }
 
     #[test]

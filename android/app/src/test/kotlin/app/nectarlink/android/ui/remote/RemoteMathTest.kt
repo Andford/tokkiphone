@@ -80,7 +80,7 @@ class RemoteMathTest {
         assertTrue(joiner.hasTypedUtterance)
 
         // Subsequent utterances get a single leading space.
-        assertEquals("This is NectarLink.", joiner.next("This is NectarLink.").removePrefix(" ").also {
+        assertEquals("This is Tokkip Phone.", joiner.next("This is Tokkip Phone.").removePrefix(" ").also {
             // Verify the actual returned string had the single leading space:
         })
         val third = joiner.next("How are you?")

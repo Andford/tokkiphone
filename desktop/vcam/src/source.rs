@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 //! Media Foundation custom media source (`IMFMediaSourceEx`, `IMFMediaStream2`,
-//! `IMFMediaEventGenerator`, `IMFGetService`, `IClassFactory`) for the NectarLink
+//! `IMFMediaEventGenerator`, `IMFGetService`, `IClassFactory`) for the Tokkip Phone
 //! virtual camera.
 
 #![allow(unsafe_code, clippy::not_unsafe_ptr_arg_deref)]

@@ -47,13 +47,13 @@ import java.security.SecureRandom
 
 /**
  * The Elevated level (docs/PLAN.md §4.6) through the phone's own wireless
- * debugging, with nothing else to install: the user pairs NectarLink once
- * with a pairing code, and from then on NectarLink connects to the phone's
+ * debugging, with nothing else to install: the user pairs Tokkip Phone once
+ * with a pairing code, and from then on Tokkip Phone connects to the phone's
  * debugging service and runs [InputServer] with the shell's permissions,
  * for real touch and keys on the mirrored screen.
  *
  * Wireless debugging turns itself off on a reboot or a new Wi-Fi network;
- * after the first pairing NectarLink may turn it back on itself
+ * after the first pairing Tokkip Phone may turn it back on itself
  * (WRITE_SECURE_SETTINGS, which it grants itself through the shell).
  */
 object Elevated {
@@ -163,7 +163,7 @@ object Elevated {
     // ---- Staying in sync ----
     //
     // Wireless debugging turns itself off when Wi-Fi drops or changes, and
-    // comes back (NectarLink turns it on, or the user does) a moment after
+    // comes back (Tokkip Phone turns it on, or the user does) a moment after
     // the new network is up. A single attempt on the network change is
     // usually too early, so Elevated retries with a backoff while the phone
     // is on Wi-Fi, and starts right away when wireless debugging turns on.
@@ -224,7 +224,7 @@ object Elevated {
 
     private fun paired() = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getBoolean(PAIRED, false)
 
-    /** The phone's own adbd, as NectarLink. */
+    /** The phone's own adbd, as Tokkip Phone. */
     private class Connection(context: Context) : AbsAdbConnectionManager() {
         private val key = AdbKey.load(context.noBackupFilesDir.resolve("adb"))
 
@@ -391,7 +391,7 @@ object Elevated {
         process.inputStream.bufferedReader().readText().takeIf { process.exitValue() == 0 }
     }.getOrNull()
 
-    /** Wireless debugging back on, when NectarLink may (granted at the first start). */
+    /** Wireless debugging back on, when Tokkip Phone may (granted at the first start). */
     private fun turnOnWirelessDebugging() {
         if (context.checkSelfPermission(Manifest.permission.WRITE_SECURE_SETTINGS) != PackageManager.PERMISSION_GRANTED) return
         runCatching {
@@ -402,10 +402,10 @@ object Elevated {
         }.onFailure { Log.i(TAG, "can't turn on wireless debugging", it) }
     }
 
-    /** What the shell grants NectarLink once, before the helper starts (however it starts). */
+    /** What the shell grants Tokkip Phone once, before the helper starts (however it starts). */
     private fun grants(): List<String> = buildList {
         val pkg = context.packageName
-        // Turning wireless debugging back on later is NectarLink's to do.
+        // Turning wireless debugging back on later is Tokkip Phone's to do.
         if (context.checkSelfPermission(Manifest.permission.WRITE_SECURE_SETTINGS) != PackageManager.PERMISSION_GRANTED) {
             add("pm grant $pkg ${Manifest.permission.WRITE_SECURE_SETTINGS}")
         }
@@ -680,7 +680,7 @@ object Elevated {
         }.onFailure { Log.w(TAG, "can't open Elevated audio stream", it) }.getOrNull()
     }
 
-    /** Lets NectarLink see which app is in front (for Pause for banking apps); false if Elevated isn't running. */
+    /** Lets Tokkip Phone see which app is in front (for Pause for banking apps); false if Elevated isn't running. */
     fun grantUsageAccess(): Boolean = runCommand("appops set ${context.packageName} GET_USAGE_STATS allow")
 
     /** Runs an allowed shell command through the Elevated helper. */
