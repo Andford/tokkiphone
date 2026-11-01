@@ -1072,22 +1072,22 @@ mod tests {
         assert!(has_copied_files_mime(gnome_targets));
 
         assert!(is_copied_file_uri_text(
-            "file:///home/jochen/Downloads/Tokkip Phone/PXL_20261016_130349832.MP.jpg\r\n"
+            "file:///home/jochen/Downloads/TokkipPhone/PXL_20261016_130349832.MP.jpg\r\n"
         ));
         assert!(is_copied_file_uri_text(
-            "copy\nfile:///home/jochen/Downloads/Tokkip Phone/PXL_20261016_130349832.MP.jpg"
+            "copy\nfile:///home/jochen/Downloads/TokkipPhone/PXL_20261016_130349832.MP.jpg"
         ));
         assert!(!is_copied_file_uri_text("Check out file:///tmp/a.txt and https://example.com"));
 
         // After write_files, read() must return Clip::Empty (so send_now falls through to
         // read_files() and the background watcher never echoes file:///... as text).
-        let paths = vec![PathBuf::from("/home/jochen/Downloads/Tokkip Phone/PXL_20261016_130349832.MP.jpg")];
+        let paths = vec![PathBuf::from("/home/jochen/Downloads/TokkipPhone/PXL_20261016_130349832.MP.jpg")];
         assert!(write_files(&paths));
         assert_eq!(read(), Clip::Empty);
         let mut reported = Vec::new();
         assert!(!report_if_changed(
             Clip::Text {
-                text: "file:///home/jochen/Downloads/Tokkip Phone/PXL_20261016_130349832.MP.jpg".into(),
+                text: "file:///home/jochen/Downloads/TokkipPhone/PXL_20261016_130349832.MP.jpg".into(),
                 html: None,
                 rtf: None,
             },
