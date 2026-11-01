@@ -182,7 +182,10 @@ jobs:
       - name: Clippy
         run: cargo clippy --locked -p nectarlink-desktop -p nectarlink-vcam -p s1-qt-rust --all-targets -- -D warnings
       - name: Tests
-        run: cargo test --locked -p nectarlink-desktop -p nectarlink-vcam
+        shell: bash
+        run: |
+          set -o pipefail
+          cargo test --locked -p nectarlink-desktop -p nectarlink-vcam 2>&1 | tee test.log || { grep -E "^test .* FAILED|panicked at|^  left:|^ right:" -A1 test.log | head -40 | sed 's/^/::error::/'; exit 1; }
       - name: Release build
         run: cargo build --locked --release -p nectarlink-desktop -p nectarlink-vcam
 
@@ -226,7 +229,10 @@ jobs:
       - uses: gradle/actions/setup-gradle@v6
       - name: Unit tests and debug build
         working-directory: android
-        run: ./gradlew --no-daemon testDebugUnitTest lintDebug assembleDebug
+        shell: bash
+        run: |
+          set -o pipefail
+          ./gradlew --no-daemon testDebugUnitTest lintDebug assembleDebug 2>&1 | tee build.log || { grep -E "FAILED|Exception|expected:|e: |Lint found" build.log | head -40 | sed 's/^/::error::/'; exit 1; }
       - uses: actions/upload-artifact@v7
         with:
           name: nectarlink-android-debug
