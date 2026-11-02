@@ -217,13 +217,13 @@
     <string name="battery_guide_pixel">On Pixel: open App info › App battery usage › tap Allow background usage and select Unrestricted.</string>
     <string name="action_manage">Manage</string>
     <string name="action_app_info">App info</string>
-    <string name="theme_hive">Hive</string>
-    <string name="hive_invite_title">Try Hive, the new theme</string>
-    <string name="hive_invite_text">Honey on charcoal or warm wax, with a living honeycomb behind the app. Change it any time in Settings.</string>
-    <string name="hive_invite_try">Try Hive</string>
+    <string name="theme_hive">Galletita</string>
+    <string name="hive_invite_title">Try Galletita, Tokkip\'s theme</string>
+    <string name="hive_invite_text">Tokkip\'s teal on his cream fur or on night teal, with soft cookies behind the app. Change it any time in Settings.</string>
+    <string name="hive_invite_try">Try Galletita</string>
     <string name="hive_invite_dismiss">Not now</string>
-    <string name="settings_comb_motion">Animated comb</string>
-    <string name="settings_comb_motion_hint">The honeycomb breathes and pulses. It holds still with Remove animations or battery saver on.</string>
+    <string name="settings_comb_motion">Animated cookies</string>
+    <string name="settings_comb_motion_hint">The cookies behind the app turn slowly and breathe. They hold still with Remove animations or battery saver on.</string>
     <string name="theme_bloom">Bloom</string>
     <string name="theme_graphite">Graphite</string>
     <string name="mode_system">System</string>
@@ -592,6 +592,7 @@
     <string name="error_generic">Something went wrong.</string>
 
     <!-- Theme seed names -->
+    <string name="settings_seed_tokkip" translatable="false">Tokkip</string>
     <string name="settings_seed_honey">Honey</string>
     <string name="settings_seed_lavender">Lavender</string>
     <string name="settings_seed_ocean">Ocean</string>
@@ -740,7 +741,7 @@
 
     <!-- Setup Walkthrough -->
     <string name="walkthrough_step_progress">Step %1$d of %2$d</string>
-    <string name="walkthrough_stage_desc">Honeycomb setup stage, step %1$d of %2$d</string>
+    <string name="walkthrough_stage_desc">Setup stage, step %1$d of %2$d</string>
     <string name="walkthrough_action_skip">Skip setup</string>
     <string name="walkthrough_action_back">Back</string>
     <string name="walkthrough_action_get_started">Get started</string>

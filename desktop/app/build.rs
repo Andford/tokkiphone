@@ -54,6 +54,7 @@ const QML: &[&str] = &[
     "qml/components/ValueSlider.qml",
     "qml/components/SwitchBar.qml",
     "qml/components/Txt.qml",
+    "qml/components/TokkipFigure.qml",
     "qml/pages/AppsPage.qml",
     "qml/pages/CallsPage.qml",
     "qml/pages/DeckPage.qml",
@@ -67,7 +68,6 @@ const QML: &[&str] = &[
     "qml/pages/WalkthroughPage.qml",
     "qml/pages/WelcomePage.qml",
     "qml/components/HiveBackdrop.qml",
-    "qml/setup/SadBee.qml",
     "qml/setup/SetupButton.qml",
     "qml/setup/SetupWindow.qml",
 ];
@@ -77,7 +77,7 @@ const QML_SINGLETONS: &[&str] = &["qml/Tokens.qml", "qml/Theme.qml", "qml/Icons.
 
 /// Bundled fonts (in `assets/fonts`), compiled in under `:/fonts/`.
 const FONTS: &[&str] =
-    &["Figtree.ttf", "InstrumentSerif-Regular.ttf", "SpaceMono-Regular.ttf", "SpaceMono-Bold.ttf"];
+    &["Figtree.ttf", "Fredoka.ttf", "RobotoFlex.ttf", "InstrumentSerif-Regular.ttf", "SpaceMono-Regular.ttf", "SpaceMono-Bold.ttf"];
 
 fn write_if_changed(path: &Path, content: impl AsRef<[u8]>) {
     let bytes = content.as_ref();

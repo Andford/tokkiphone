@@ -3480,13 +3480,13 @@ Voraussetzungen
     </message>
     <message>
         <location filename="../qml/pages/HomePage.qml" line="371"/>
-        <source>Try Hive, the new theme</source>
-        <translation>Probiere „Wabe“, das neue Design</translation>
+        <source>Try Galletita, Tokkip&apos;s theme</source>
+        <translation>Probiere „Galletita“, Tokkips Design</translation>
     </message>
     <message>
         <location filename="../qml/pages/HomePage.qml" line="378"/>
-        <source>Honey on charcoal or warm wax, with a living honeycomb behind the app. Change it any time in Settings › Appearance.</source>
-        <translation>Honig auf Anthrazit oder warmem Wachs, mit einer lebendigen Bienenwabe hinter der App. Jederzeit unter Einstellungen › Darstellung änderbar.</translation>
+        <source>Tokkip&apos;s teal on his cream fur or on night teal, with soft cookies behind the app. Change it any time in Settings › Appearance.</source>
+        <translation>Tokkips Türkis auf cremigem Fell oder Nachttürkis, mit weichen Keksen hinter der App. Jederzeit unter Einstellungen › Darstellung änderbar.</translation>
     </message>
     <message>
         <location filename="../qml/pages/HomePage.qml" line="390"/>
@@ -3495,8 +3495,8 @@ Voraussetzungen
     </message>
     <message>
         <location filename="../qml/pages/HomePage.qml" line="397"/>
-        <source>Try Hive</source>
-        <translation>Wabe ausprobieren</translation>
+        <source>Try Galletita</source>
+        <translation>Galletita ausprobieren</translation>
     </message>
     <message>
         <location filename="../qml/pages/HomePage.qml" line="425"/>
@@ -6265,8 +6265,8 @@ Voraussetzungen
     <name>SadBee</name>
     <message>
         <location filename="../qml/setup/SadBee.qml" line="23"/>
-        <source>A sad bee</source>
-        <translation>Eine traurige Biene</translation>
+        <source>Tokkip, sad</source>
+        <translation>Tokkip, traurig</translation>
     </message>
 </context>
 <context>
@@ -6655,8 +6655,8 @@ Voraussetzungen
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="532"/>
-        <source>Hive</source>
-        <translation>Wabe</translation>
+        <source>Galletita</source>
+        <translation>Galletita</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="533"/>
@@ -6725,8 +6725,8 @@ Voraussetzungen
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="808"/>
         <location filename="../qml/pages/SettingsPage.qml" line="817"/>
-        <source>Animated comb</source>
-        <translation>Animierte Wabe</translation>
+        <source>Animated cookies</source>
+        <translation>Animierte Kekse</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="811"/>
@@ -6745,8 +6745,8 @@ Voraussetzungen
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="815"/>
-        <source>The honeycomb breathes and pulses.</source>
-        <translation>Die Bienenwabe atmet und pulsiert.</translation>
+        <source>The cookies behind the app turn slowly and breathe.</source>
+        <translation>Die Kekse hinter der App drehen sich langsam und atmen.</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="848"/>

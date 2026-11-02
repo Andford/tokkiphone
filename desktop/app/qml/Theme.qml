@@ -3,8 +3,8 @@ pragma Singleton
 import QtQuick
 import app.nectarlink
 
-// The active theme: Bloom (Material You, seed presets, the default), Hive
-// (honey on charcoal or wax), Glass, or Graphite (paper and slate), light
+// The active theme: Bloom (Material You, seed presets, Tokkip's teal by
+// default), Galletita ("hive" inside: Tokkip's teal on cream or night teal), Glass, or Graphite (paper and slate), light
 // or dark, resolved from Preferences and the system. Colors
 // come from Tokens (generated from docs/design/tokens.json); Material's
 // "onX" roles are named "xContent" because QML reserves the "on" prefix.
@@ -26,8 +26,8 @@ QtObject {
     readonly property bool combMotion: hive && Preferences.combMotion && !reduceMotion && !AppController.powerSaver
     readonly property color combLine: Qt.rgba(primary.r, primary.g, primary.b,
                                               dark ? comb.lineAlphaDark : comb.lineAlphaLight)
-    readonly property color combGlow: dark ? Qt.rgba(1.0, 0.62, 0.18, comb.glowAlphaDark)
-                                           : Qt.rgba(1.0, 0.72, 0.37, comb.glowAlphaLight)
+    readonly property color combGlow: Qt.rgba(primaryContainer.r, primaryContainer.g, primaryContainer.b,
+                                              dark ? comb.glowAlphaDark : comb.glowAlphaLight)
     // One clock for every comb in the app (seconds), so two combs never draw
     // twice as often. The main window runs it while it's in front.
     property real combTime: 0
@@ -233,8 +233,8 @@ QtObject {
 
     // ---- Type ----
     // Bundled with the app (assets/fonts).
-    readonly property string fontUi: "Figtree"
-    readonly property string fontDisplay: graphite ? "Instrument Serif" : "Figtree"
+    readonly property string fontUi: "Roboto Flex"
+    readonly property string fontDisplay: graphite ? "Instrument Serif" : "Fredoka"
     readonly property string fontMono: "Space Mono"
     readonly property var typography: Tokens.data.typography
     readonly property var labelStyle: graphite ? Tokens.data.themes.graphite.label

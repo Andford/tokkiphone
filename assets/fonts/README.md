@@ -6,13 +6,16 @@ each license sits next to its font and is packaged with it.
 
 | File | Family | Used for |
 |---|---|---|
-| `Figtree.ttf` | Figtree (variable, weights 300 to 900) | All text in Bloom; body text in Graphite |
+| `RobotoFlex.ttf` | Roboto Flex (variable) | Text in Bloom and Galletita (Tokkip's) |
+| `Fredoka.ttf` | Fredoka (variable, weights 300 to 700) | Headings in Bloom and Galletita (Tokkip's) |
+| `Figtree.ttf` | Figtree (variable, weights 300 to 900) | Body text in Graphite |
 | `InstrumentSerif-Regular.ttf` | Instrument Serif | Graphite headings |
 | `SpaceMono-Regular.ttf`, `SpaceMono-Bold.ttf` | Space Mono | Codes, IDs and Graphite labels |
 
 Taken unmodified from [google/fonts](https://github.com/google/fonts) at
 commit `6e8069ff8ba3dab2a397fb30e7fbd243aba9b57a` (`ofl/figtree`,
-`ofl/instrumentserif`, `ofl/spacemono`).
+`ofl/instrumentserif`, `ofl/spacemono`); Fredoka and Roboto Flex from its `main`
+branch (`ofl/fredoka`, `ofl/robotoflex`), November 2026.
 
 The Windows app compiles them into its resources (`desktop/app/build.rs`);
 the Android app packages this folder as assets (`android/app/build.gradle.kts`).

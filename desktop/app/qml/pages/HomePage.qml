@@ -328,15 +328,15 @@ Item {
                     width: parent.width
                     height: Math.max(hiveSample.height, hiveInviteText.implicitHeight, hiveInviteButtons.implicitHeight)
 
-                    // A small window onto the comb, in Hive's own colors.
+                    // A small window onto Galletita, in its own colors, with Tokkip.
                     Rectangle {
                         id: hiveSample
                         anchors.verticalCenter: parent.verticalCenter
                         width: 56; height: 56
                         radius: 14
-                        color: Theme.dark ? "#121214" : "#FFF8F3"
+                        color: Theme.dark ? "#0E1514" : "#FFF9F2"
                         border.width: 1
-                        border.color: Theme.dark ? Qt.rgba(1.0, 0.73, 0.37, 0.24) : Qt.rgba(0.54, 0.32, 0.0, 0.20)
+                        border.color: Theme.dark ? Qt.rgba(0.50, 0.84, 0.82, 0.24) : Qt.rgba(0.0, 0.42, 0.40, 0.20)
                         HiveBackdrop {
                             anchors.fill: parent
                             corner: parent.radius
@@ -345,16 +345,15 @@ Item {
                             time: Theme.combTime
                             animate: !Theme.reduceMotion && !AppController.powerSaver
                             cell: 9
-                            lineColor: Theme.dark ? Qt.rgba(1.0, 0.73, 0.37, 0.28) : Qt.rgba(0.54, 0.32, 0.0, 0.16)
-                            glowColor: Theme.dark ? Qt.rgba(1.0, 0.62, 0.18, 0.70) : Qt.rgba(1.0, 0.72, 0.37, 0.75)
+                            lineColor: Theme.dark ? Qt.rgba(0.50, 0.84, 0.82, 0.28) : Qt.rgba(0.0, 0.42, 0.40, 0.16)
+                            glowColor: Theme.dark ? Qt.rgba(0.50, 0.84, 0.82, 0.70) : Qt.rgba(0.97, 0.92, 0.83, 0.85)
                             origin: Qt.point(width / 2, height / 2)
                         }
-                        Icon {
-                            anchors.centerIn: parent
-                            width: 22; height: 22
-                            path: Icons.mark
-                            stroke: 2.2
-                            color: Theme.dark ? "#FFB95F" : "#8A5100"
+                        TokkipFigure {
+                            anchors.fill: parent
+                            cookie: false
+                            animate: !Theme.reduceMotion && !AppController.powerSaver
+                            accent: Theme.dark ? "#80D5D0" : "#006A67"
                         }
                     }
                     Column {
@@ -368,14 +367,14 @@ Item {
                         Txt {
                             width: parent.width
                             role: "title"
-                            text: qsTr("Try Hive, the new theme")
+                            text: qsTr("Try Galletita, Tokkip's theme")
                             wrapMode: Text.WordWrap
                         }
                         Txt {
                             width: parent.width
                             role: "bodySmall"
                             muted: true
-                            text: qsTr("Honey on charcoal or warm wax, with a living honeycomb behind the app. Change it any time in Settings › Appearance.")
+                            text: qsTr("Tokkip's teal on his cream fur or on night teal, with soft cookies behind the app. Change it any time in Settings › Appearance.")
                             wrapMode: Text.WordWrap
                         }
                     }
@@ -394,7 +393,7 @@ Item {
                             variant: "tonal"
                             size: "sm"
                             iconPath: Icons.sparkle
-                            text: qsTr("Try Hive")
+                            text: qsTr("Try Galletita")
                             onClicked: {
                                 Preferences.hiveInviteDismissed = true
                                 Preferences.theme = "hive"
@@ -753,14 +752,14 @@ Item {
                         readonly property real rBl: home.screenData && home.screenData.corners
                             ? Math.max(3, home.screenData.corners.bl * width) : defaultCorner
                         readonly property var phonePalette: Theme.phonePalette(home.deviceId)
-                        // Hive keeps its own honey here too, whatever the phone's colors.
+                        // Galletita keeps its own teal here too, whatever the phone's colors.
                         readonly property color seedColor: Theme.hive
                             ? Theme.primary
                             : phonePalette
                             ? Qt.color(phonePalette.primary)
                             : (home.accent && home.accent.length > 0 ? Qt.color(home.accent) : Theme.primary)
                         readonly property color frameFill: Theme.hive
-                            ? (Theme.dark ? "#0E0E10" : "#2A2420")
+                            ? (Theme.dark ? "#0B1110" : "#1F2A29")
                             : Theme.graphite
                             ? (Theme.dark ? "#1B1D21" : "#282B30")
                             : Qt.darker(seedColor, Theme.dark ? 2.8 : 2.3)
@@ -768,17 +767,17 @@ Item {
                             ? Theme.outline
                             : Qt.rgba(Theme.heroContent.r, Theme.heroContent.g, Theme.heroContent.b, 0.42)
                         readonly property color screenTop: Theme.hive
-                            ? (Theme.dark ? "#3A2709" : "#FFE2BC")
+                            ? (Theme.dark ? "#0F3B39" : "#C9F2EF")
                             : Theme.graphite
                             ? (Theme.dark ? "#262930" : "#E4E7EC")
                             : (Theme.dark ? Qt.darker(seedColor, 1.85) : Qt.lighter(seedColor, 1.35))
                         readonly property color screenBottom: Theme.hive
-                            ? (Theme.dark ? "#141210" : "#F1C27F")
+                            ? (Theme.dark ? "#0B1716" : "#7FCFCA")
                             : Theme.graphite
                             ? (Theme.dark ? "#17191D" : "#CFD4DC")
                             : (Theme.dark ? Qt.darker(seedColor, 2.55) : Qt.darker(seedColor, 1.25))
                         readonly property color screenInk: Theme.hive
-                            ? (Theme.dark ? "#FFDDB3" : "#2C1600")
+                            ? (Theme.dark ? "#C9F2EF" : "#00201F")
                             : (Theme.graphite && !Theme.dark ? "#1E2025" : "#FFFFFF")
                         readonly property string cutoutSvg: {
                             const s = home.screenData
@@ -870,7 +869,7 @@ Item {
                             frameMs: Theme.comb.frameMs
                             breathSeconds: Theme.comb.breathSeconds
                             pulseSeconds: Theme.comb.pulseSeconds
-                            lineColor: Theme.dark ? Qt.rgba(1.0, 0.73, 0.37, 0.26) : Qt.rgba(0.54, 0.32, 0.0, 0.16)
+                            lineColor: Theme.dark ? Qt.rgba(0.50, 0.84, 0.82, 0.26) : Qt.rgba(0.0, 0.42, 0.40, 0.16)
                             glowColor: Theme.combGlow
                             origin: Qt.point(width / 2, height * 0.42)
                         }

@@ -54,6 +54,7 @@ import java.util.Locale
 internal fun normalizeArgbSeed(argb: Int): UInt = (argb.toUInt() or 0xFF00_0000u)
 
 private val PRESET_SEEDS = mapOf(
+    "tokkip" to 0xFF3F_9E9Au,
     "honey" to 0xFFB7_791Fu,
     "lavender" to 0xFF7E_6AA8u,
     "ocean" to 0xFF3D_7DA8u,
@@ -94,16 +95,16 @@ fun materialYouAccent(
         context.applicationContext.getSharedPreferences("appearance", Context.MODE_PRIVATE)
     }.getOrNull()
     if (prefs != null) {
-        val seed = prefs.getString("seed", "honey") ?: "honey"
+        val seed = prefs.getString("seed", "tokkip") ?: "tokkip"
         val dynamicColor = prefs.getBoolean("dynamic_color", true)
         if (seed == "artwork" && activeMediaColor != null) {
             return normalizeArgbSeed(activeMediaColor.toInt())
         }
         if (!dynamicColor || Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
-            return PRESET_SEEDS[seed] ?: PRESET_SEEDS["honey"]
+            return PRESET_SEEDS[seed] ?: PRESET_SEEDS["tokkip"]
         }
     }
-    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) return PRESET_SEEDS["honey"]
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) return PRESET_SEEDS["tokkip"]
 
     // Kept as is so the stock check below can see it (a neighboring shade of a stock
     // palette is also stock, and would pass for a real choice).

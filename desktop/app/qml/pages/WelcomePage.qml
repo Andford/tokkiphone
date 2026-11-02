@@ -14,18 +14,13 @@ Item {
         width: Math.min(460, parent.width - 48)
         spacing: 22
 
-        Rectangle {
+        TokkipFigure {
             anchors.horizontalCenter: parent.horizontalCenter
-            width: 52; height: 52
-            radius: Theme.radiusMd
-            color: Theme.graphite ? Theme.surfaceContent : Theme.primary
-            Icon {
-                anchors.centerIn: parent
-                width: 26; height: 26
-                path: Icons.mark
-                stroke: 2.4
-                color: Theme.graphite ? Theme.surface : Theme.primaryContent
-            }
+            width: 120; height: 120
+            animate: !Theme.reduceMotion
+            accent: Theme.graphite ? Theme.surfaceContent : Theme.primary
+            cookieColor: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, Theme.dark ? 0.22 : 0.14)
+            mood: page.status === "ready" ? "happy" : page.status === "failed" ? "sad" : "working"
         }
         Column {
             width: parent.width

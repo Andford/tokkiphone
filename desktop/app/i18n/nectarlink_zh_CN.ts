@@ -3478,13 +3478,13 @@ What it needs
     </message>
     <message>
         <location filename="../qml/pages/HomePage.qml" line="371"/>
-        <source>Try Hive, the new theme</source>
-        <translation>试试新主题蜂巢</translation>
+        <source>Try Galletita, Tokkip&apos;s theme</source>
+        <translation>试试 Tokkip 的主题「Galletita」</translation>
     </message>
     <message>
         <location filename="../qml/pages/HomePage.qml" line="378"/>
-        <source>Honey on charcoal or warm wax, with a living honeycomb behind the app. Change it any time in Settings › Appearance.</source>
-        <translation>炭黑底色上的蜜色，或温暖的蜡色，应用背后还有鲜活的蜂巢。可随时在设置 › 外观中更换。</translation>
+        <source>Tokkip&apos;s teal on his cream fur or on night teal, with soft cookies behind the app. Change it any time in Settings › Appearance.</source>
+        <translation>Tokkip 的青绿色，配奶油色或夜青色，应用背后有柔软的饼干。随时可在“设置 › 外观”中更改。</translation>
     </message>
     <message>
         <location filename="../qml/pages/HomePage.qml" line="390"/>
@@ -3493,8 +3493,8 @@ What it needs
     </message>
     <message>
         <location filename="../qml/pages/HomePage.qml" line="397"/>
-        <source>Try Hive</source>
-        <translation>试用蜂巢</translation>
+        <source>Try Galletita</source>
+        <translation>试试 Galletita</translation>
     </message>
     <message>
         <location filename="../qml/pages/HomePage.qml" line="425"/>
@@ -6261,8 +6261,8 @@ What it needs
     <name>SadBee</name>
     <message>
         <location filename="../qml/setup/SadBee.qml" line="23"/>
-        <source>A sad bee</source>
-        <translation>一只难过的蜜蜂</translation>
+        <source>Tokkip, sad</source>
+        <translation>难过的 Tokkip</translation>
     </message>
 </context>
 <context>
@@ -6651,8 +6651,8 @@ What it needs
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="532"/>
-        <source>Hive</source>
-        <translation>蜂巢</translation>
+        <source>Galletita</source>
+        <translation>Galletita</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="533"/>
@@ -6721,8 +6721,8 @@ What it needs
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="808"/>
         <location filename="../qml/pages/SettingsPage.qml" line="817"/>
-        <source>Animated comb</source>
-        <translation>动态蜂巢</translation>
+        <source>Animated cookies</source>
+        <translation>动态饼干</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="811"/>
@@ -6741,8 +6741,8 @@ What it needs
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="815"/>
-        <source>The honeycomb breathes and pulses.</source>
-        <translation>蜂巢会呼吸与脉动。</translation>
+        <source>The cookies behind the app turn slowly and breathe.</source>
+        <translation>应用背后的饼干会缓缓转动、呼吸。</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="848"/>

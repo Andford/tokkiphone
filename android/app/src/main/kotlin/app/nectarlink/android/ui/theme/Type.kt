@@ -13,22 +13,23 @@ import androidx.compose.ui.text.font.FontWeight
 
 /**
  * The fonts bundled with the app (`assets/fonts` in the repository, packaged
- * as assets under `fonts/`): Figtree for text, Instrument Serif for
- * Graphite's headings, Space Mono for codes.
+ * as assets under `fonts/`): Tokkip's Roboto Flex for text and Fredoka for
+ * headings, Figtree for Graphite's text, Instrument Serif for Graphite's
+ * headings, Space Mono for codes.
  */
 @Immutable
 class AppFonts(assets: AssetManager) {
-    /** Figtree is a variable font: one file, every weight the app uses. */
-    val sans = FontFamily(
-        listOf(400, 500, 600, 650, 700).map { weight ->
-            Font(
-                "fonts/Figtree.ttf",
-                assets,
-                FontWeight(weight),
-                variationSettings = FontVariation.Settings(FontVariation.weight(weight)),
-            )
+    /** Variable fonts: one file each, every weight the app uses. */
+    private fun variable(file: String, weights: List<Int>) = FontFamily(
+        weights.map { weight ->
+            Font(file, assets, FontWeight(weight), variationSettings = FontVariation.Settings(FontVariation.weight(weight)))
         },
     )
+    val sans = variable("fonts/RobotoFlex.ttf", listOf(400, 500, 600, 650, 700))
+    /** Tokkip's round headings. */
+    val display = variable("fonts/Fredoka.ttf", listOf(500, 600, 650, 700))
+    /** Graphite's text. */
+    val figtree = variable("fonts/Figtree.ttf", listOf(400, 500, 600, 650, 700))
     val serif = FontFamily(Font("fonts/InstrumentSerif-Regular.ttf", assets))
     val mono = FontFamily(
         Font("fonts/SpaceMono-Regular.ttf", assets),
@@ -45,9 +46,9 @@ val LocalAppFonts = staticCompositionLocalOf<AppFonts> { error("NectarlinkTheme 
  */
 internal fun typography(fonts: AppFonts, graphite: Boolean): Typography {
     val base = Typography()
-    fun TextStyle.text(weight: Int) = copy(fontFamily = fonts.sans, fontWeight = FontWeight(weight))
+    fun TextStyle.text(weight: Int) = copy(fontFamily = if (graphite) fonts.figtree else fonts.sans, fontWeight = FontWeight(weight))
     fun TextStyle.heading() =
-        if (graphite) copy(fontFamily = fonts.serif, fontWeight = FontWeight.Normal) else text(650)
+        if (graphite) copy(fontFamily = fonts.serif, fontWeight = FontWeight.Normal) else copy(fontFamily = fonts.display, fontWeight = FontWeight(600))
     return base.copy(
         displayLarge = base.displayLarge.heading(),
         displayMedium = base.displayMedium.heading(),

@@ -30,7 +30,7 @@ data class Palette(
 data class Seed(val color: Color, val light: Palette, val dark: Palette)
 
 object Tokens {
-    const val DEFAULT_SEED = "honey"
+    const val DEFAULT_SEED = "tokkip"
 
     val bloomSeeds: Map<String, Seed> = linkedMapOf(
         "black" to Seed(
@@ -218,6 +218,43 @@ object Tokens {
                 outlineVariant = Color(0xFF424940),
             ),
         ),
+        "tokkip" to Seed(
+            color = Color(0xFF3F9E9A),
+            light = Palette(
+                primary = Color(0xFF006A67),
+                onPrimary = Color(0xFFFFFFFF),
+                primaryContainer = Color(0xFF9CF1ED),
+                onPrimaryContainer = Color(0xFF00504D),
+                secondaryContainer = Color(0xFFCCE8E6),
+                onSecondaryContainer = Color(0xFF324B4A),
+                surface = Color(0xFFF4FBF9),
+                surfaceContainerLow = Color(0xFFEFF5F3),
+                surfaceContainer = Color(0xFFE9EFEE),
+                surfaceContainerHigh = Color(0xFFE3E9E8),
+                surfaceContainerHighest = Color(0xFFDDE4E2),
+                onSurface = Color(0xFF161D1C),
+                onSurfaceVariant = Color(0xFF3F4948),
+                outline = Color(0xFF6F7978),
+                outlineVariant = Color(0xFFBEC9C7),
+            ),
+            dark = Palette(
+                primary = Color(0xFF80D5D0),
+                onPrimary = Color(0xFF003735),
+                primaryContainer = Color(0xFF00504D),
+                onPrimaryContainer = Color(0xFF9CF1ED),
+                secondaryContainer = Color(0xFF324B4A),
+                onSecondaryContainer = Color(0xFFCCE8E6),
+                surface = Color(0xFF0E1514),
+                surfaceContainerLow = Color(0xFF161D1C),
+                surfaceContainer = Color(0xFF1A2120),
+                surfaceContainerHigh = Color(0xFF252B2B),
+                surfaceContainerHighest = Color(0xFF2F3635),
+                onSurface = Color(0xFFDDE4E2),
+                onSurfaceVariant = Color(0xFFBEC9C7),
+                outline = Color(0xFF889392),
+                outlineVariant = Color(0xFF3F4948),
+            ),
+        ),
     )
 
     val graphitePaper = Palette(
@@ -257,45 +294,45 @@ object Tokens {
     )
 
     val hiveWax = Palette(
-        primary = Color(0xFF8A5100),
+        primary = Color(0xFF006A67),
         onPrimary = Color(0xFFFFFFFF),
-        primaryContainer = Color(0xFFFFDDB3),
-        onPrimaryContainer = Color(0xFF2C1600),
-        secondaryContainer = Color(0xFFF4E3CD),
-        onSecondaryContainer = Color(0xFF2A1F14),
-        surface = Color(0xFFFFF8F3),
-        surfaceContainerLow = Color(0xFFFCF2E9),
-        surfaceContainer = Color(0xFFF8ECE1),
-        surfaceContainerHigh = Color(0xFFF3E5D7),
-        surfaceContainerHighest = Color(0xFFEDDDCD),
-        onSurface = Color(0xFF1F1B16),
-        onSurfaceVariant = Color(0xFF5C4F43),
-        outline = Color(0xFF85766A),
-        outlineVariant = Color(0xFFDDCBBA),
+        primaryContainer = Color(0xFF9CF1ED),
+        onPrimaryContainer = Color(0xFF00504D),
+        secondaryContainer = Color(0xFFECDBBB),
+        onSecondaryContainer = Color(0xFF2D250F),
+        surface = Color(0xFFFFF5E7),
+        surfaceContainerLow = Color(0xFFFFEFD1),
+        surfaceContainer = Color(0xFFFAE9C8),
+        surfaceContainerHigh = Color(0xFFF1E1C0),
+        surfaceContainerHighest = Color(0xFFECDBBB),
+        onSurface = Color(0xFF161D1C),
+        onSurfaceVariant = Color(0xFF3F4948),
+        outline = Color(0xFF6F7978),
+        outlineVariant = Color(0xFFDACAAB),
     )
 
     val hiveComb = Palette(
-        primary = Color(0xFFFFB95F),
-        onPrimary = Color(0xFF2C1600),
-        primaryContainer = Color(0xFF5A3A0E),
-        onPrimaryContainer = Color(0xFFFFDDB3),
-        secondaryContainer = Color(0xFF2F2A24),
-        onSecondaryContainer = Color(0xFFF0E0CC),
-        surface = Color(0xFF121214),
-        surfaceContainerLow = Color(0xFF151517),
-        surfaceContainer = Color(0xFF1A1A1D),
-        surfaceContainerHigh = Color(0xFF212124),
-        surfaceContainerHighest = Color(0xFF29292D),
-        onSurface = Color(0xFFEDE6DD),
-        onSurfaceVariant = Color(0xFFABA195),
-        outline = Color(0xFF8D8379),
-        outlineVariant = Color(0xFF34312D),
+        primary = Color(0xFF80D5D0),
+        onPrimary = Color(0xFF003735),
+        primaryContainer = Color(0xFF00504D),
+        onPrimaryContainer = Color(0xFF9CF1ED),
+        secondaryContainer = Color(0xFF343A3A),
+        onSecondaryContainer = Color(0xFFDDE4E2),
+        surface = Color(0xFF121918),
+        surfaceContainerLow = Color(0xFF161D1C),
+        surfaceContainer = Color(0xFF1A2120),
+        surfaceContainerHigh = Color(0xFF252B2B),
+        surfaceContainerHighest = Color(0xFF2F3635),
+        onSurface = Color(0xFFDDE4E2),
+        onSurfaceVariant = Color(0xFFBEC9C7),
+        outline = Color(0xFF889392),
+        outlineVariant = Color(0xFF383F3E),
     )
 
-    val hiveWaxWarning = Color(0xFF7A4A00)
-    val hiveWaxError = Color(0xFF9E2B25)
-    val hiveCombWarning = Color(0xFFF5D58A)
-    val hiveCombError = Color(0xFFF0A39C)
+    val hiveWaxWarning = Color(0xFF7D5200)
+    val hiveWaxError = Color(0xFFBA1A1A)
+    val hiveCombWarning = Color(0xFFF2C14E)
+    val hiveCombError = Color(0xFFFFB4AB)
 
     /** The honeycomb backdrop (themes.hive.comb). */
     const val COMB_CELL_DP = 24f

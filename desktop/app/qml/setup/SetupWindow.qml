@@ -4,8 +4,8 @@ import QtQuick.Shapes
 import app.nectarlink
 
 // The installer's and the uninstaller's window (src/setup.rs). One window,
-// three moments: welcome, working, done. Its own fixed colors (honey on warm
-// paper, or on charcoal), following the system's light or dark mode.
+// three moments: welcome, working, done. Its own fixed colors (Tokkip's teal on
+// cream, or on night teal), following the system's light or dark mode.
 NativeWindow {
     id: window
 
@@ -14,21 +14,21 @@ NativeWindow {
     readonly property bool animate: !Setup.reduceMotion
     readonly property string phase: Setup.phase
 
-    readonly property color bg: dark ? "#121214" : "#FFF8F3"
-    readonly property color ink: dark ? "#EDE6DD" : "#1F1B16"
-    readonly property color muted: dark ? "#A39A90" : "#6B5E52"
-    readonly property color honey: dark ? "#FFB95F" : "#8A5100"
-    readonly property color onHoney: dark ? "#2C1600" : "#FFFFFF"
+    readonly property color bg: dark ? "#0E1514" : "#FFF9F2"
+    readonly property color ink: dark ? "#DDE4E2" : "#161D1C"
+    readonly property color muted: dark ? "#A0AAA8" : "#5C6563"
+    readonly property color honey: dark ? "#80D5D0" : "#006A67"
+    readonly property color onHoney: dark ? "#003735" : "#FFFFFF"
     readonly property color track: dark ? Qt.rgba(1, 1, 1, 0.08) : Qt.rgba(0.12, 0.10, 0.08, 0.08)
     readonly property color danger: dark ? "#F0A39C" : "#9E2B25"
-    readonly property color panel: dark ? "#1C1B1D" : "#FFFFFF"
-    // Removing: the comb goes grey and dim.
+    readonly property color panel: dark ? "#172120" : "#FFFFFF"
+    // Removing: the cookies go grey and dim.
     readonly property color comb: removing
         ? (dark ? Qt.rgba(1, 1, 1, 0.09) : Qt.rgba(0.30, 0.26, 0.22, 0.06))
-        : (dark ? Qt.rgba(1.0, 0.73, 0.37, 0.22) : Qt.rgba(0.54, 0.32, 0.0, 0.085))
+        : (dark ? Qt.rgba(0.50, 0.84, 0.82, 0.20) : Qt.rgba(0.0, 0.42, 0.40, 0.09))
     readonly property color combGlow: removing
         ? (dark ? Qt.rgba(0.55, 0.52, 0.48, 0.55) : Qt.rgba(0.72, 0.68, 0.62, 0.55))
-        : (dark ? Qt.rgba(1.0, 0.62, 0.18, 0.75) : Qt.rgba(1.0, 0.72, 0.37, 0.80))
+        : (dark ? Qt.rgba(0.50, 0.84, 0.82, 0.70) : Qt.rgba(0.97, 0.92, 0.83, 0.85))
 
     readonly property string action: removing ? "remove"
         : Setup.kind === "update" ? "update"
@@ -142,45 +142,25 @@ NativeWindow {
             }
         }
 
-        // The logo (installing) or the bee (removing), breathing while busy.
+        // Tokkip: waiting, working while it installs, happy when it's done,
+        // sad when you remove him or something fails.
         Item {
             id: emblem
-            width: 104
-            height: 104
+            width: 140
+            height: 140
             anchors.horizontalCenter: parent.horizontalCenter
-            y: 60
+            y: 40
             opacity: window.phase === "done" && !window.removing ? 0 : 1
             visible: opacity > 0
             Behavior on opacity { NumberAnimation { duration: 260 } }
 
-            property real breath: 0
-            SequentialAnimation on breath {
-                running: window.animate && window.phase === "working" && !window.removing
-                loops: Animation.Infinite
-                NumberAnimation { from: 0; to: 1; duration: 1500; easing.type: Easing.InOutSine }
-                NumberAnimation { from: 1; to: 0; duration: 1500; easing.type: Easing.InOutSine }
-            }
-
-            Image {
-                anchors.centerIn: parent
-                width: 96
-                height: 96
-                visible: !window.removing
-                source: Setup.iconUrl
-                sourceSize: Qt.size(192, 192)
-                smooth: true
-                mipmap: true
-                scale: 1 + emblem.breath * 0.04
-                Accessible.role: Accessible.Graphic
-                Accessible.name: qsTr("Tokkip Phone")
-            }
-            SadBee {
-                anchors.centerIn: parent
-                width: 150
-                height: 128
-                visible: window.removing
+            TokkipFigure {
+                anchors.fill: parent
                 animate: window.animate
-                dark: window.dark
+                cookieColor: window.dark ? Qt.rgba(0.50, 0.84, 0.82, 0.14) : Qt.rgba(0.0, 0.42, 0.40, 0.10)
+                mood: window.removing || window.phase === "failed" ? "sad"
+                    : window.phase === "working" ? "working"
+                    : "idle"
             }
         }
 
@@ -196,7 +176,7 @@ NativeWindow {
             Text {
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
-                font.family: "Figtree"
+                font.family: "Roboto Flex"
                 font.pixelSize: 28
                 font.weight: Font.DemiBold
                 color: window.ink
@@ -215,7 +195,7 @@ NativeWindow {
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
                 lineHeight: 1.25
-                font.family: "Figtree"
+                font.family: "Roboto Flex"
                 font.pixelSize: 15
                 color: window.phase === "failed" ? window.danger : window.muted
                 text: window.phase === "failed" ? Setup.message
@@ -258,7 +238,7 @@ NativeWindow {
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
-                font.family: "Figtree"
+                font.family: "Roboto Flex"
                 font.pixelSize: 13
                 color: window.danger
                 text: Setup.message
@@ -294,7 +274,7 @@ NativeWindow {
                 id: details
                 visible: window.phase === "welcome" && !window.removing
                 anchors.horizontalCenter: parent.horizontalCenter
-                font.family: "Figtree"
+                font.family: "Roboto Flex"
                 font.pixelSize: 13
                 font.underline: detailsArea.containsMouse
                 color: window.muted
@@ -327,7 +307,7 @@ NativeWindow {
             Text {
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
-                font.family: "Figtree"
+                font.family: "Roboto Flex"
                 font.pixelSize: 28
                 font.weight: Font.DemiBold
                 color: window.ink
@@ -339,7 +319,7 @@ NativeWindow {
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
                 lineHeight: 1.25
-                font.family: "Figtree"
+                font.family: "Roboto Flex"
                 font.pixelSize: 15
                 color: window.muted
                 text: window.removing
@@ -372,7 +352,7 @@ NativeWindow {
             Text {
                 visible: !window.removing
                 anchors.horizontalCenter: parent.horizontalCenter
-                font.family: "Figtree"
+                font.family: "Roboto Flex"
                 font.pixelSize: 13
                 font.underline: true
                 color: window.honey
@@ -439,7 +419,7 @@ NativeWindow {
                     anchors.margins: 32
                     spacing: 12
                     Text {
-                        font.family: "Figtree"
+                        font.family: "Roboto Flex"
                         font.pixelSize: 18
                         font.weight: Font.DemiBold
                         color: window.ink
@@ -449,7 +429,7 @@ NativeWindow {
                         width: parent.width
                         wrapMode: Text.WordWrap
                         lineHeight: 1.3
-                        font.family: "Figtree"
+                        font.family: "Roboto Flex"
                         font.pixelSize: 14
                         color: window.muted
                         textFormat: Text.StyledText
@@ -461,7 +441,7 @@ NativeWindow {
                             + "<br><br>" + qsTr("It checks GitHub for updates once a day, which you can turn off in Settings. Otherwise your phone and PC only talk to each other.")
                     }
                     Text {
-                        font.family: "Figtree"
+                        font.family: "Roboto Flex"
                         font.pixelSize: 14
                         font.underline: true
                         color: window.honey

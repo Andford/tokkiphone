@@ -1,27 +1,26 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick
+import QtQuick.Shapes
 
-// The Hive theme's living honeycomb (shaders/hive.frag), behind the setup
-// window and, in the Hive theme, the whole app: it grows out of `origin`,
-// breathes slowly, and sends a soft pulse of light outward every few seconds.
+// The Galletita theme's backdrop (the theme is still "hive" inside, so the
+// setting people saved keeps working): soft Tokkip cookies, the Material
+// Expressive shape he sits on, scattered behind the setup window and, in
+// Galletita, the whole app. They appear from `origin` outwards, each turns
+// slowly and breathes, and now and then a soft glow travels out from the
+// origin across them, a little stronger where it passes.
 //
-// Light on resources: one fragment shader and no textures. Its clock ticks
-// every `frameMs` (about 30 frames a second; the motion is slow enough that
-// more looks the same). In the app every comb shares Theme's clock, so two
-// combs never draw twice as often; the setup window runs its own. `paused`
-// holds the current frame; `animate` false draws a still comb with no
-// breathing or pulses (reduced motion, battery saver, the user's setting).
-ShaderEffect {
-    id: hive
+// Light on resources: a few dozen GPU-drawn shapes and one clock that ticks
+// every `frameMs`. In the app every backdrop shares Theme's clock; the setup
+// window runs its own. `paused` holds the current frame; `animate` false
+// draws them still (reduced motion, battery saver, the user's setting).
+Item {
+    id: backdrop
 
-    // Breathing and pulses (false: a still comb).
     property bool animate: true
-    // Hold the current frame (its own clock only).
     property bool paused: false
-    // Keep time itself (setup), rather than following `time` set by the app.
     property bool ownClock: true
-    // Grows out from the origin when it first appears (when it animates).
     property bool growIn: true
+    // Spacing unit: cookies sit about five cells apart.
     property real cell: 24
     property real strength: 1
     property color lineColor
@@ -30,46 +29,35 @@ ShaderEffect {
     property int frameMs: 33
     property real breathSeconds: 6.0
     property real pulseSeconds: 4.5
-    // Rounded-rectangle mask radius (0: none), for the phone preview.
+    // Rounded corners (0: none), for the phone preview.
     property real corner: 0
-    // How far the comb carries before it fades (a fraction of the diagonal;
-    // larger spreads it evenly), and how far each pulse travels.
     property real reach: 0.62
     property real pulseReach: 0.75
 
-    readonly property size itemSize: Qt.size(width, height)
-    readonly property real pulse: animate ? 1 : 0
-    readonly property real breathPeriod: breathSeconds
-    readonly property real pulsePeriod: pulseSeconds
     property real time: 0
-    // 0 to 1 as it grows out; the shader gets it in pixels.
     property real grow: 1
-    readonly property real reveal: grow * Math.hypot(width, height)
+    readonly property real diagonal: Math.hypot(width, height)
 
-    blending: true
-    fragmentShader: "qrc:/shaders/hive.frag.qsb"
+    clip: true
 
-    // Its own clock: seconds carried across pauses, so it picks up where it
-    // stopped rather than jumping.
     property real _base: 0
     property double _since: 0
     Timer {
-        interval: hive.frameMs
+        interval: backdrop.frameMs
         repeat: true
-        running: hive.ownClock && hive.animate && !hive.paused && hive.visible && hive.width > 0
+        running: backdrop.ownClock && backdrop.animate && !backdrop.paused && backdrop.visible && backdrop.width > 0
         onRunningChanged: {
             if (running)
-                hive._since = Date.now()
+                backdrop._since = Date.now()
             else
-                hive._base = hive.time
+                backdrop._base = backdrop.time
         }
-        onTriggered: hive.time = hive._base + (Date.now() - hive._since) / 1000
+        onTriggered: backdrop.time = backdrop._base + (Date.now() - backdrop._since) / 1000
     }
 
-    // Grows out once, when it first appears; never again after that.
     NumberAnimation {
         id: growAnimation
-        target: hive
+        target: backdrop
         property: "grow"
         from: 0
         to: 1
@@ -80,6 +68,71 @@ ShaderEffect {
         if (growIn && animate) {
             grow = 0
             growAnimation.start()
+        }
+    }
+
+    // The cookie's outline, centred on (0, 0): 9 soft bumps, radius 1.
+    readonly property var outline: {
+        const pts = []
+        for (let i = 0; i <= 72; i++) {
+            const th = i / 72 * Math.PI * 2
+            const r = (1 + 0.07 * Math.cos(9 * th)) / 1.07
+            pts.push(Qt.point(Math.cos(th) * r, Math.sin(th) * r))
+        }
+        return pts
+    }
+    // Where the cookies sit: a staggered grid, each a little nudged and sized.
+    readonly property var spots: {
+        const out = []
+        const step = Math.max(72, cell * 6.5)
+        const cols = Math.ceil(width / step) + 1, rows = Math.ceil(height / (step * 0.87)) + 1
+        for (let r = 0; r < rows; r++)
+            for (let q = 0; q < cols; q++) {
+                const seed = Math.sin(r * 12.9898 + q * 78.233) * 43758.5453
+                const f = seed - Math.floor(seed)
+                out.push({
+                    x: q * step + (r % 2 ? step / 2 : 0) + (f - 0.5) * step * 0.3,
+                    y: r * step * 0.87 + (0.5 - f) * step * 0.25,
+                    size: step * (0.2 + 0.16 * f),
+                    phase: f * Math.PI * 2,
+                    spin: (f - 0.5) * 16
+                })
+            }
+        return out
+    }
+
+    Repeater {
+        model: backdrop.spots
+        Shape {
+            id: one
+            required property var modelData
+            readonly property real dist: Math.hypot(modelData.x - backdrop.origin.x, modelData.y - backdrop.origin.y) / Math.max(1, backdrop.diagonal)
+            // Fades out with distance, and appears as it grows out from the origin.
+            readonly property real fade: Math.max(0, 1 - dist / Math.max(0.05, backdrop.reach))
+                                         * (dist <= backdrop.grow ? 1 : 0)
+            // The glow passing through: a ring travelling out every pulseSeconds.
+            readonly property real wave: backdrop.animate
+                ? Math.max(0, 1 - Math.abs(dist - ((backdrop.time % backdrop.pulseSeconds) / backdrop.pulseSeconds) * backdrop.pulseReach) * 9)
+                : 0
+            readonly property real breath: backdrop.animate
+                ? Math.sin(backdrop.time * 2 * Math.PI / backdrop.breathSeconds + modelData.phase) : 0
+
+            x: modelData.x
+            y: modelData.y
+            width: 1
+            height: 1
+            visible: fade > 0.01
+            opacity: Math.min(1, backdrop.strength * (0.35 + 0.65 * fade))
+            scale: modelData.size * (1 + breath * 0.05)
+            rotation: modelData.phase * 57.3 + (backdrop.animate ? backdrop.time * modelData.spin : 0)
+            preferredRendererType: Shape.CurveRenderer
+
+            ShapePath {
+                strokeWidth: 1.6 / one.scale
+                strokeColor: Qt.rgba(backdrop.lineColor.r, backdrop.lineColor.g, backdrop.lineColor.b, backdrop.lineColor.a * (0.9 + 0.6 * one.wave))
+                fillColor: Qt.rgba(backdrop.lineColor.r, backdrop.lineColor.g, backdrop.lineColor.b, backdrop.lineColor.a * (0.4 + 0.5 * one.wave))
+                PathPolyline { path: backdrop.outline }
+            }
         }
     }
 }

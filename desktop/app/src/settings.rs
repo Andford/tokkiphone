@@ -309,7 +309,7 @@ pub fn set_window_geometry(
 pub struct Settings {
     pub theme: Theme,
     /// Bloom colors: "wallpaper" (from the desktop wallpaper) or a preset,
-    /// e.g. "honey" (see docs/design/tokens.json).
+    /// e.g. "tokkip" (see docs/design/tokens.json).
     #[serde(alias = "accent")]
     pub seed: String,
     #[serde(alias = "color_mode")]
@@ -496,7 +496,7 @@ impl Default for Settings {
     fn default() -> Self {
         Settings {
             theme: Theme::default(),
-            seed: "wallpaper".into(),
+            seed: "tokkip".into(),
             color_mode: ColorMode::default(),
             amoled: false,
             backdrop: true,
@@ -747,7 +747,7 @@ mod tests {
         fs::write(dir.path().join(FILE_NAME), r#"{ "theme": "graphite" }"#).unwrap();
         let loaded = Settings::load(dir.path());
         assert_eq!(loaded.theme, Theme::Graphite);
-        assert_eq!(loaded.seed, "wallpaper");
+        assert_eq!(loaded.seed, "tokkip");
 
         fs::write(dir.path().join(FILE_NAME), "{ not json").unwrap();
         assert_eq!(Settings::load(dir.path()), Settings::default());

@@ -374,12 +374,13 @@ fun SettingsScreen(
                                     val isSelected = (!appearance.dynamicColor || Build.VERSION.SDK_INT < Build.VERSION_CODES.S) && appearance.seed == name
                                     val seedLabel = stringResource(
                                         when (name) {
+                                            "tokkip" -> R.string.settings_seed_tokkip
                                             "honey" -> R.string.settings_seed_honey
                                             "lavender" -> R.string.settings_seed_lavender
                                             "ocean" -> R.string.settings_seed_ocean
                                             "sage" -> R.string.settings_seed_sage
                                             "black" -> R.string.settings_seed_black
-                                            else -> R.string.settings_seed_honey
+                                            else -> R.string.settings_seed_tokkip
                                         },
                                     )
                                     val isBlackSeed = name == "black"

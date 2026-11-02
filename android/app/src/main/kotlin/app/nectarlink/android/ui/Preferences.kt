@@ -161,7 +161,7 @@ class Preferences(context: Context) {
             theme: String?,
             mode: String?,
             seed: String?,
-            dynamicColor: Boolean = true,
+            dynamicColor: Boolean = false,
             amoled: Boolean = false,
             combMotion: Boolean = true,
         ): Appearance {

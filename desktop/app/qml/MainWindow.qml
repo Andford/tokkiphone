@@ -431,8 +431,8 @@ NativeWindow {
         Behavior on color { ColorAnimation { duration: Theme.fadeNormal } }
     }
 
-    // Hive: the living comb behind everything, growing from the logo. It
-    // holds its frame while the window isn't in front or is minimized.
+    // Galletita: Tokkip's cookies behind everything, appearing from him in
+    // the rail. They hold still while the window isn't in front or is minimized.
     HiveBackdrop {
         id: hiveComb
         anchors.fill: parent
@@ -561,25 +561,27 @@ NativeWindow {
         color: "transparent"
         property string hoveredNav: ""
 
-        Rectangle {
+        // Tokkip himself, alive at the top of the rail: asleep with no phone
+        // paired, working while files move, happy when you point at him.
+        TokkipFigure {
             id: mark
             anchors.horizontalCenter: parent.horizontalCenter
             // Centered on the top bar, level with the page title and the window buttons.
             y: (Theme.topBarHeight - height) / 2
-            width: 38; height: 38
-            radius: Theme.radiusSm
-            color: Theme.graphite ? Theme.surfaceContent : Theme.primary
-            Icon {
-                anchors.centerIn: parent
-                path: Icons.mark
-                stroke: 2.4
-                color: Theme.graphite ? Theme.surface : Theme.primaryContent
-            }
+            width: 52; height: 52
+            animate: !Theme.reduceMotion && window.active
+            accent: Theme.graphite ? Theme.surfaceContent : Theme.primary
+            cookieColor: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, Theme.dark ? 0.22 : 0.16)
+            mood: markHover.hovered ? "happy"
+                : TransferList.active > 0 ? "working"
+                : DeviceList.count === 0 ? "sleep"
+                : "idle"
+            HoverHandler { id: markHover }
         }
         Column {
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: mark.bottom
-            anchors.topMargin: 31
+            anchors.topMargin: 24
             spacing: 6
             NavItem {
                 iconPath: Icons.home

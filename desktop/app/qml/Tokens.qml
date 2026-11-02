@@ -86,14 +86,14 @@ QtObject {
       },
       "themes": {
         "bloom": {
-          "defaultSeed": "honey",
-          "description": "Default. Minimal Material You: neutral surfaces, color only where it carries meaning.",
+          "defaultSeed": "tokkip",
+          "description": "Default. Material 3 Expressive in Tokkip's colours: his teal on calm surfaces, colour only where it carries meaning.",
           "dynamicColor": true,
           "fonts": {
-            "display": "Figtree",
-            "label": "Figtree",
+            "display": "Fredoka",
+            "label": "Roboto Flex",
             "mono": "Space Mono",
-            "ui": "Figtree"
+            "ui": "Roboto Flex"
           },
           "label": {
             "case": "none",
@@ -286,15 +286,52 @@ QtObject {
                 "surfaceContainerLow": "#F1F5EB"
               },
               "seed": "#5B8C5A"
+            },
+            "tokkip": {
+              "dark": {
+                "onPrimary": "#003735",
+                "onPrimaryContainer": "#9CF1ED",
+                "onSecondaryContainer": "#CCE8E6",
+                "onSurface": "#DDE4E2",
+                "onSurfaceVariant": "#BEC9C7",
+                "outline": "#889392",
+                "outlineVariant": "#3F4948",
+                "primary": "#80D5D0",
+                "primaryContainer": "#00504D",
+                "secondaryContainer": "#324B4A",
+                "surface": "#0E1514",
+                "surfaceContainer": "#1A2120",
+                "surfaceContainerHigh": "#252B2B",
+                "surfaceContainerHighest": "#2F3635",
+                "surfaceContainerLow": "#161D1C"
+              },
+              "light": {
+                "onPrimary": "#FFFFFF",
+                "onPrimaryContainer": "#00504D",
+                "onSecondaryContainer": "#324B4A",
+                "onSurface": "#161D1C",
+                "onSurfaceVariant": "#3F4948",
+                "outline": "#6F7978",
+                "outlineVariant": "#BEC9C7",
+                "primary": "#006A67",
+                "primaryContainer": "#9CF1ED",
+                "secondaryContainer": "#CCE8E6",
+                "surface": "#F4FBF9",
+                "surfaceContainer": "#E9EFEE",
+                "surfaceContainerHigh": "#E3E9E8",
+                "surfaceContainerHighest": "#DDE4E2",
+                "surfaceContainerLow": "#EFF5F3"
+              },
+              "seed": "#3F9E9A"
             }
           },
           "shape": {
             "full": 999,
-            "lg": 20,
-            "md": 16,
-            "sm": 12,
-            "xl": 28,
-            "xs": 8
+            "lg": 24,
+            "md": 20,
+            "sm": 14,
+            "xl": 32,
+            "xs": 10
           },
           "status": {
             "dark": {
@@ -405,13 +442,13 @@ QtObject {
             "lineAlphaLight": 0.11,
             "pulseSeconds": 4.5
           },
-          "description": "Honey on charcoal (Comb, dark) and on warm wax (Wax, light), with a living honeycomb behind the app that grows from the logo, breathes and pulses. Colors are fixed: no wallpaper, artwork or phone colors.",
+          "description": "Galletita: Tokkip's teal on his cream fur (light) and on a night teal (dark), with soft cookie shapes behind the app that turn slowly and breathe. Colors are fixed: no wallpaper, artwork or phone colors.",
           "dynamicColor": false,
           "fonts": {
-            "display": "Figtree",
-            "label": "Figtree",
+            "display": "Fredoka",
+            "label": "Roboto Flex",
             "mono": "Space Mono",
-            "ui": "Figtree"
+            "ui": "Roboto Flex"
           },
           "label": {
             "case": "none",
@@ -420,61 +457,61 @@ QtObject {
             "weight": 600
           },
           "rules": [
-            "The installer and uninstaller always use Hive. In the apps it's a choice, offered by a card on Home that returns after an update or a reinstall once dismissed.",
-            "The comb holds still with reduced motion, in battery or energy saver, when Animated comb is off, and while the window isn't in front.",
-            "The comb is drawn by one shader behind everything; cards stay opaque so text never sits on moving lines.",
-            "Primary buttons are honey with a soft honey glow on hover; outlines and focus rings use honey at low alpha."
+            "The installer and uninstaller always use Galletita. In the apps it's a choice, offered by a card on Home that returns after an update or a reinstall once dismissed.",
+            "The cookies holds still with reduced motion, in battery or energy saver, when Animated cookies is off, and while the window isn't in front.",
+            "The cookies is drawn by one shader behind everything; cards stay opaque so text never sits on moving lines.",
+            "Primary buttons are teal with a soft teal glow on hover; outlines and focus rings use teal at low alpha."
           ],
           "shape": {
             "full": 999,
-            "lg": 18,
-            "md": 14,
-            "sm": 10,
-            "xl": 24,
-            "xs": 6
+            "lg": 26,
+            "md": 20,
+            "sm": 14,
+            "xl": 34,
+            "xs": 10
           },
           "variants": {
             "comb": {
-              "error": "#F0A39C",
-              "onError": "#3B0B07",
-              "onPrimary": "#2C1600",
-              "onPrimaryContainer": "#FFDDB3",
-              "onSecondaryContainer": "#F0E0CC",
-              "onSurface": "#EDE6DD",
-              "onSurfaceVariant": "#ABA195",
-              "outline": "#8D8379",
-              "outlineVariant": "#34312D",
-              "primary": "#FFB95F",
-              "primaryContainer": "#5A3A0E",
-              "secondaryContainer": "#2F2A24",
-              "success": "#FFB95F",
-              "surface": "#121214",
-              "surfaceContainer": "#1A1A1D",
-              "surfaceContainerHigh": "#212124",
-              "surfaceContainerHighest": "#29292D",
-              "surfaceContainerLow": "#151517",
-              "warning": "#F5D58A"
+              "error": "#FFB4AB",
+              "onError": "#690005",
+              "onPrimary": "#003735",
+              "onPrimaryContainer": "#9CF1ED",
+              "onSecondaryContainer": "#DDE4E2",
+              "onSurface": "#DDE4E2",
+              "onSurfaceVariant": "#BEC9C7",
+              "outline": "#889392",
+              "outlineVariant": "#383F3E",
+              "primary": "#80D5D0",
+              "primaryContainer": "#00504D",
+              "secondaryContainer": "#343A3A",
+              "success": "#80D5D0",
+              "surface": "#121918",
+              "surfaceContainer": "#1A2120",
+              "surfaceContainerHigh": "#252B2B",
+              "surfaceContainerHighest": "#2F3635",
+              "surfaceContainerLow": "#161D1C",
+              "warning": "#F2C14E"
             },
             "wax": {
-              "error": "#9E2B25",
+              "error": "#BA1A1A",
               "onError": "#FFFFFF",
               "onPrimary": "#FFFFFF",
-              "onPrimaryContainer": "#2C1600",
-              "onSecondaryContainer": "#2A1F14",
-              "onSurface": "#1F1B16",
-              "onSurfaceVariant": "#5C4F43",
-              "outline": "#85766A",
-              "outlineVariant": "#DDCBBA",
-              "primary": "#8A5100",
-              "primaryContainer": "#FFDDB3",
-              "secondaryContainer": "#F4E3CD",
-              "success": "#8A5100",
-              "surface": "#FFF8F3",
-              "surfaceContainer": "#F8ECE1",
-              "surfaceContainerHigh": "#F3E5D7",
-              "surfaceContainerHighest": "#EDDDCD",
-              "surfaceContainerLow": "#FCF2E9",
-              "warning": "#7A4A00"
+              "onPrimaryContainer": "#00504D",
+              "onSecondaryContainer": "#2D250F",
+              "onSurface": "#161D1C",
+              "onSurfaceVariant": "#3F4948",
+              "outline": "#6F7978",
+              "outlineVariant": "#DACAAB",
+              "primary": "#006A67",
+              "primaryContainer": "#9CF1ED",
+              "secondaryContainer": "#ECDBBB",
+              "success": "#006A67",
+              "surface": "#FFF5E7",
+              "surfaceContainer": "#FAE9C8",
+              "surfaceContainerHigh": "#F1E1C0",
+              "surfaceContainerHighest": "#ECDBBB",
+              "surfaceContainerLow": "#FFEFD1",
+              "warning": "#7D5200"
             }
           }
         }

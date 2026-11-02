@@ -529,7 +529,7 @@ Item {
                             title: qsTr("Theme")
                             Segmented {
                                 options: [
-                                    { value: "hive", label: qsTr("Hive") },
+                                    { value: "hive", label: qsTr("Galletita") },
                                     { value: "bloom", label: qsTr("Bloom") },
                                     { value: "glass", label: qsTr("Glass") },
                                     { value: "graphite", label: qsTr("Graphite") }
@@ -805,16 +805,16 @@ Item {
                             width: parent.width
                             visible: Theme.hive
                             iconPath: Icons.sparkle
-                            title: qsTr("Animated comb")
+                            title: qsTr("Animated cookies")
                             description: AppController.reduceMotion
                                 ? (Qt.platform.os === "linux"
                                     ? qsTr("Still while animations are off in system settings.")
                                     : qsTr("Still while animations are off in Windows."))
                                 : (AppController.powerSaver
                                     ? qsTr("Still while energy saver is on.")
-                                    : qsTr("The honeycomb breathes and pulses."))
+                                    : qsTr("The cookies behind the app turn slowly and breathe."))
                             Toggle {
-                                label: qsTr("Animated comb")
+                                label: qsTr("Animated cookies")
                                 checked: Preferences.combMotion
                                 onToggled: (on) => Preferences.combMotion = on
                             }

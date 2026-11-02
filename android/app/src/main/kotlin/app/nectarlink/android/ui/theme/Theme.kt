@@ -69,7 +69,7 @@ data class Appearance(
     val mode: String = "system",
     val seed: String = Tokens.DEFAULT_SEED,
     /** Bloom/Glass takes its colors from the wallpaper (Android 12+). */
-    val dynamicColor: Boolean = true,
+    val dynamicColor: Boolean = false,
     /** True #000000 OLED black surfaces when in dark mode. */
     val amoled: Boolean = false,
     /** Hive's comb breathes and pulses (still with reduced motion or battery saver). */
