@@ -395,7 +395,7 @@ fun NectarlinkTheme(
     }
     val graphite = appearance.theme == "graphite"
     val glass = appearance.theme == "glass"
-    // Hive keeps its own honey: no wallpaper, artwork or phone colors.
+    // Galletita keeps its own teal: no wallpaper, artwork or phone colors.
     val hive = appearance.theme == "hive"
     val isBlackSwatch = !appearance.dynamicColor && appearance.seed == "black"
     val amoledActive = dark && appearance.amoled && (graphite || isBlackSwatch)

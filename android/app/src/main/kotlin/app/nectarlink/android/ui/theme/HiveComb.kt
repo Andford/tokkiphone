@@ -5,11 +5,8 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.graphics.RuntimeShader
-import android.os.Build
 import android.os.PowerManager
 import android.os.SystemClock
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
@@ -22,11 +19,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
-import androidx.compose.ui.graphics.ShaderBrush
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
@@ -38,7 +33,7 @@ import kotlin.math.PI
 import kotlin.math.sin
 import kotlin.math.sqrt
 
-/** The Hive theme is active. */
+/** The Galletita theme (still "hive" inside) is active. */
 val LocalHiveTheme = compositionLocalOf { false }
 
 /** True while Android's battery saver is on: decorative animation rests. */
@@ -60,15 +55,15 @@ fun rememberPowerSaver(): Boolean {
 }
 
 /**
- * Hive's living honeycomb behind the app, the same comb as the Windows app
- * and the installer: it breathes slowly and sends a soft pulse of light
- * outward from [origin] every few seconds.
+ * Galletita's backdrop (the theme is still "hive" inside, so saved settings
+ * keep working), the same as the Windows app's and the installer's: soft
+ * Tokkip cookies, the Material Expressive shape he sits on, scattered behind
+ * the app. They appear from [origin], each turns slowly and breathes, and now
+ * and then a soft glow travels outward across them.
  *
- * Light on the battery: on Android 13 and newer one GPU shader draws it;
- * time advances about 30 times a second (the motion is slow enough that more
- * looks the same), and only while the app is in front. Only the backdrop
- * redraws, never the content above it. With [animate] false it holds still.
- * Older Android draws the same comb from a cached path and only breathes.
+ * Light on the battery: a few dozen cached paths drawn on one Canvas; time
+ * advances about 30 times a second, only while the app is in front, and only
+ * the backdrop redraws. With [animate] false they hold still.
  */
 @Composable
 fun HiveComb(
@@ -79,14 +74,9 @@ fun HiveComb(
     origin: (androidx.compose.ui.geometry.Size) -> Offset = { Offset(it.width / 2f, it.height * 0.18f) },
 ) {
     val line = if (dark) {
-        Color(0xFFFFB95F).copy(alpha = Tokens.COMB_LINE_ALPHA_DARK)
+        Color(0xFF80D5D0).copy(alpha = Tokens.COMB_LINE_ALPHA_DARK)
     } else {
-        Color(0xFF8A5100).copy(alpha = Tokens.COMB_LINE_ALPHA_LIGHT)
-    }
-    val glow = if (dark) {
-        Color(1.0f, 0.62f, 0.18f, Tokens.COMB_GLOW_ALPHA_DARK)
-    } else {
-        Color(1.0f, 0.72f, 0.37f, Tokens.COMB_GLOW_ALPHA_LIGHT)
+        Color(0xFF006A67).copy(alpha = Tokens.COMB_LINE_ALPHA_LIGHT)
     }
     val cellPx = with(LocalDensity.current) { cellDp * density }
 
@@ -104,158 +94,46 @@ fun HiveComb(
             }
         }
     }
-    val pulse = if (animate) 1f else 0f
-
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-        ShaderComb(modifier, { time }, pulse, cellPx, line, glow, origin)
-    } else {
-        PathComb(modifier, { time }, pulse, cellPx, line, glow, origin)
-    }
-}
-
-@RequiresApi(Build.VERSION_CODES.TIRAMISU)
-@Composable
-private fun ShaderComb(
-    modifier: Modifier,
-    time: () -> Float,
-    pulse: Float,
-    cell: Float,
-    line: Color,
-    glow: Color,
-    origin: (androidx.compose.ui.geometry.Size) -> Offset,
-) {
-    val shader = remember { RuntimeShader(COMB_AGSL) }
-    val brush = remember(shader) { ShaderBrush(shader) }
+    val moving = animate
     Canvas(modifier.fillMaxSize()) {
+        val t = if (moving) time else 0f
+        val step = maxOf(72f * density, cellPx * 6.5f)
         val o = origin(size)
-        shader.setFloatUniform("size", size.width, size.height)
-        shader.setFloatUniform("origin", o.x, o.y)
-        shader.setFloatUniform("time", time())
-        shader.setFloatUniform("cell", cell)
-        shader.setFloatUniform("pulse", pulse)
-        shader.setFloatUniform("breathPeriod", Tokens.COMB_BREATH_SECONDS)
-        shader.setFloatUniform("pulsePeriod", Tokens.COMB_PULSE_SECONDS)
-        shader.setFloatUniform("lineColor", line.red, line.green, line.blue, line.alpha)
-        shader.setFloatUniform("glowColor", glow.red, glow.green, glow.blue, glow.alpha)
-        drawRect(brush)
-    }
-}
-
-/** Android 12 and older: the comb as one cached path, breathing as a whole. */
-@Composable
-private fun PathComb(
-    modifier: Modifier,
-    time: () -> Float,
-    pulse: Float,
-    cell: Float,
-    line: Color,
-    glow: Color,
-    origin: (androidx.compose.ui.geometry.Size) -> Offset,
-) {
-    androidx.compose.foundation.layout.Box(
-        modifier.fillMaxSize().drawWithCache {
-            val path = combPath(size.width, size.height, cell, origin(size))
-            val stroke = Stroke(width = 1.2f * density)
-            val o = origin(size)
-            val glowRadius = 150f * density
-            onDrawBehind {
-                val breathe = 0.78f + 0.22f * sin(time() * 2f * PI.toFloat() / Tokens.COMB_BREATH_SECONDS) * pulse
-                drawPath(path, line.copy(alpha = line.alpha * breathe), style = stroke)
-                drawCircle(
-                    brush = androidx.compose.ui.graphics.Brush.radialGradient(
-                        listOf(glow.copy(alpha = glow.alpha * 0.32f * breathe), Color.Transparent),
-                        center = o,
-                        radius = glowRadius,
-                    ),
-                    radius = glowRadius,
-                    center = o,
-                )
-            }
-        },
-    )
-}
-
-/** Hexagons of the shader's grid (flat sides left and right), in pixels. */
-private fun combPath(width: Float, height: Float, cell: Float, origin: Offset): Path {
-    val path = Path()
-    val s = sqrt(3f)
-    val half = 0.5f * cell
-    val top = cell / s
-    val side = 0.5f * cell / s
-    val rows = (height / (s * cell)).toInt() + 3
-    val cols = (width / cell).toInt() + 3
-    val startCol = -(origin.x / cell).toInt() - 2
-    val startRow = -(origin.y / (s * cell)).toInt() - 2
-    for (row in startRow until startRow + rows) {
-        for (col in startCol until startCol + cols) {
-            for (shift in 0..1) {
-                val cx = origin.x + (col + 0.5f * shift) * cell
-                val cy = origin.y + (row + 0.5f * shift) * s * cell
-                path.moveTo(cx, cy - top)
-                path.lineTo(cx + half, cy - side)
-                path.lineTo(cx + half, cy + side)
-                path.lineTo(cx, cy + top)
-                path.lineTo(cx - half, cy + side)
-                path.lineTo(cx - half, cy - side)
-                path.close()
-            }
+        val diagonal = sqrt(size.width * size.width + size.height * size.height)
+        val stroke = Stroke(width = 1.6f * density)
+        val pulse = (t % Tokens.COMB_PULSE_SECONDS) / Tokens.COMB_PULSE_SECONDS
+        val cols = (size.width / step).toInt() + 2
+        val rows = (size.height / (step * 0.87f)).toInt() + 2
+        for (r in 0 until rows) for (q in 0 until cols) {
+            val seed = sin(r * 12.9898f + q * 78.233f) * 43758.5453f
+            val f = seed - kotlin.math.floor(seed)
+            val x = q * step + (if (r % 2 == 1) step / 2 else 0f) + (f - 0.5f) * step * 0.3f
+            val y = r * step * 0.87f + (0.5f - f) * step * 0.25f
+            val dx = x - o.x
+            val dy = y - o.y
+            val dist = sqrt(dx * dx + dy * dy) / diagonal
+            val fade = (1f - dist / 2.4f).coerceIn(0f, 1f)
+            if (fade < 0.01f) continue
+            val wave = if (moving) (1f - kotlin.math.abs(dist - pulse * 1.05f) * 9f).coerceAtLeast(0f) else 0f
+            val breath = if (moving) sin(t * 2f * PI.toFloat() / Tokens.COMB_BREATH_SECONDS + f * 6.283f) else 0f
+            val radius = step * (0.2f + 0.16f * f) * (1f + breath * 0.05f)
+            val turn = f * 6.283f + t * (f - 0.5f) * 16f * PI.toFloat() / 180f
+            val path = cookiePath(Offset(x, y), radius, turn)
+            val a = 0.35f + 0.65f * fade
+            drawPath(path, line.copy(alpha = line.alpha * (0.4f + 0.5f * wave) * a))
+            drawPath(path, line.copy(alpha = (line.alpha * (0.9f + 0.6f * wave) * a).coerceAtMost(1f)), style = stroke)
         }
     }
-    return path
 }
 
-/** The comb's shader, the same as the Windows app's (desktop/app/shaders/hive.frag). */
-private const val COMB_AGSL = """
-uniform float2 size;
-uniform float2 origin;
-uniform float time;
-uniform float cell;
-uniform float pulse;
-uniform float breathPeriod;
-uniform float pulsePeriod;
-uniform float4 lineColor;
-uniform float4 glowColor;
-
-const float2 S = float2(1.0, 1.7320508);
-
-float4 hexCoords(float2 p) {
-    float4 c = floor(float4(p, p - float2(0.5, 1.0)) / S.xyxy) + 0.5;
-    float4 h = float4(p - c.xy * S, p - (c.zw + 0.5) * S);
-    return dot(h.xy, h.xy) < dot(h.zw, h.zw) ? float4(h.xy, c.xy) : float4(h.zw, c.zw + 0.5);
+/** Tokkip's cookie: a circle with nine soft bumps, turned by [turn] radians. */
+internal fun cookiePath(center: Offset, radius: Float, turn: Float, lobes: Int = 9, depth: Float = 0.07f): Path = Path().apply {
+    for (i in 0..72) {
+        val th = i / 72f * 2f * PI.toFloat()
+        val rr = radius * (1f + depth * kotlin.math.cos(lobes * (th - turn))) / (1f + depth)
+        val px = center.x + kotlin.math.cos(th) * rr
+        val py = center.y + kotlin.math.sin(th) * rr
+        if (i == 0) moveTo(px, py) else lineTo(px, py)
+    }
+    close()
 }
-
-float hexDist(float2 p) {
-    p = abs(p);
-    return max(dot(p, S * 0.5), p.x);
-}
-
-float hash(float2 p) {
-    return fract(sin(dot(p, float2(127.1, 311.7))) * 43758.5453);
-}
-
-half4 main(float2 px) {
-    float d = distance(px, origin);
-    float far = length(size);
-
-    float4 h = hexCoords((px - origin) / cell);
-    float edge = 0.5 - hexDist(h.xy);
-    float line = 1.0 - smoothstep(0.0, 1.5 / cell, edge);
-
-    // Carries across the whole screen, fading only a little.
-    float falloff = exp(-d / (far * 2.4));
-    float breathe = 0.78 + 0.22 * sin(time * 6.2831853 / breathPeriod) * pulse;
-
-    float t = fract(time / pulsePeriod);
-    float ring = exp(-pow((d - t * far * 1.05) / (far * 0.06), 2.0)) * (1.0 - t) * pulse;
-
-    float shade = 0.75 + 0.5 * hash(h.zw);
-
-    float lineA = line * falloff * breathe * shade * 1.2 + line * ring * 1.6;
-    float fillA = ring * 0.08 * shade;
-    float glowA = exp(-d / (far * 0.12)) * breathe * 0.32;
-
-    float3 rgb = lineColor.rgb * lineA * lineColor.a + glowColor.rgb * (glowA + fillA) * glowColor.a;
-    float a = clamp(lineA * lineColor.a + (glowA + fillA) * glowColor.a, 0.0, 1.0);
-    return half4(half3(rgb), half(a));
-}
-"""

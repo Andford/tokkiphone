@@ -865,7 +865,7 @@ private fun HiveInviteCard(onTry: () -> Unit, onDismiss: () -> Unit) {
             modifier = Modifier
                 .size(56.dp)
                 .clip(RoundedCornerShape(14.dp))
-                .background(if (dark) Color(0xFF121214) else Color(0xFFFFF8F3)),
+                .background(if (dark) Color(0xFF0E1514) else Color(0xFFFFF9F2)),
             contentAlignment = Alignment.Center,
         ) {
             app.nectarlink.android.ui.theme.HiveComb(
@@ -873,6 +873,13 @@ private fun HiveInviteCard(onTry: () -> Unit, onDismiss: () -> Unit) {
                 animate = !reduced && !saving,
                 cellDp = 9f,
                 origin = { androidx.compose.ui.geometry.Offset(it.width / 2f, it.height / 2f) },
+            )
+            app.nectarlink.android.ui.theme.TokkipFigure(
+                mood = app.nectarlink.android.ui.theme.TokkipMood.Happy,
+                animate = !reduced && !saving,
+                cookie = false,
+                accent = if (dark) Color(0xFF80D5D0) else Color(0xFF006A67),
+                modifier = Modifier.fillMaxSize(),
             )
         }
         Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(6.dp)) {
@@ -919,6 +926,14 @@ private fun NoPairedPcCard(
             .padding(22.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
+        // Tokkip dozes until there's a PC to keep him company.
+        app.nectarlink.android.ui.theme.TokkipFigure(
+            mood = app.nectarlink.android.ui.theme.TokkipMood.Sleep,
+            animate = !LocalReducedMotion.current,
+            accent = MaterialTheme.colorScheme.primary,
+            cookieColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.14f),
+            modifier = Modifier.size(96.dp),
+        )
         Text(
             text = stringResource(R.string.home_no_pc_paired),
             style = MaterialTheme.typography.headlineSmall,
