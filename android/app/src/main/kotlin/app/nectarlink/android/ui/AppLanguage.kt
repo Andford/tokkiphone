@@ -16,6 +16,7 @@ object AppLanguage {
     /** The languages the app speaks, as BCP 47 tags, each named in its own language. */
     val languages: List<Pair<String, String>> = listOf(
         "en" to "English",
+        "es" to "Español",
         "de" to "Deutsch",
         "zh-CN" to "简体中文",
     )
