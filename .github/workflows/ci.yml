@@ -41,7 +41,9 @@ jobs:
         run: cargo clippy --locked $CORE_CRATES --all-targets -- -D warnings
       - name: Tests
         shell: bash
-        run: cargo test --locked $CORE_CRATES
+        run: |
+          set -o pipefail
+          cargo test --locked $CORE_CRATES 2>&1 | tee test.log || { grep -E "^test .* FAILED|panicked at|^  left:|^ right:" -A1 test.log | head -40 | sed 's/^/::error::/'; exit 1; }
       - name: Generated files are up to date
         if: runner.os == 'Linux'
         run: |
