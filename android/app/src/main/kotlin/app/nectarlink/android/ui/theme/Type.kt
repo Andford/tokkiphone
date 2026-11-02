@@ -18,7 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
  * headings, Space Mono for codes.
  */
 @Immutable
-class AppFonts(assets: AssetManager) {
+class AppFonts(private val assets: AssetManager) {
     /** Variable fonts: one file each, every weight the app uses. */
     private fun variable(file: String, weights: List<Int>) = FontFamily(
         weights.map { weight ->

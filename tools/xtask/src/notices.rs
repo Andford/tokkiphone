@@ -174,7 +174,10 @@ fn write_qt(text: &mut String, root: &Path) -> Result<()> {
 
 fn write_fonts(text: &mut String, root: &Path) -> Result<()> {
     writeln!(text, "\nFonts\n-----")?;
-    writeln!(text, "Figtree, Fredoka, Roboto Flex, Instrument Serif and Space Mono, under the SIL Open Font License 1.1:")?;
+    writeln!(
+        text,
+        "Figtree, Fredoka, Roboto Flex, Instrument Serif and Space Mono, under the SIL Open Font License 1.1:"
+    )?;
     let mut ofl: Vec<PathBuf> = fs::read_dir(root.join("assets/fonts"))?
         .filter_map(|e| e.ok().map(|e| e.path()))
         .filter(|p| p.file_name().is_some_and(|n| n.to_string_lossy().starts_with("OFL-")))

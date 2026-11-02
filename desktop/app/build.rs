@@ -76,8 +76,14 @@ const QML: &[&str] = &[
 const QML_SINGLETONS: &[&str] = &["qml/Tokens.qml", "qml/Theme.qml", "qml/Icons.qml"];
 
 /// Bundled fonts (in `assets/fonts`), compiled in under `:/fonts/`.
-const FONTS: &[&str] =
-    &["Figtree.ttf", "Fredoka.ttf", "RobotoFlex.ttf", "InstrumentSerif-Regular.ttf", "SpaceMono-Regular.ttf", "SpaceMono-Bold.ttf"];
+const FONTS: &[&str] = &[
+    "Figtree.ttf",
+    "Fredoka.ttf",
+    "RobotoFlex.ttf",
+    "InstrumentSerif-Regular.ttf",
+    "SpaceMono-Regular.ttf",
+    "SpaceMono-Bold.ttf",
+];
 
 fn write_if_changed(path: &Path, content: impl AsRef<[u8]>) {
     let bytes = content.as_ref();
