@@ -365,12 +365,15 @@ FocusScope {
                         implicitWidth: 640
                         implicitHeight: 148
 
+                        // Tokkip's cookie (nine soft bumps) where the honeycomb used to be;
+                        // the helpers keep their old names so the steps draw unchanged.
                         function drawHex(ctx, cx, cy, r) {
                             ctx.beginPath()
-                            for (let i = 0; i < 6; i++) {
-                                let angle = (Math.PI / 3) * i - Math.PI / 6
-                                let px = cx + r * Math.cos(angle)
-                                let py = cy + r * Math.sin(angle)
+                            for (let i = 0; i <= 72; i++) {
+                                const th = i / 72 * Math.PI * 2
+                                const rr = r * 0.98 * (1 + 0.07 * Math.cos(9 * th)) / 1.07
+                                const px = cx + rr * Math.cos(th)
+                                const py = cy + rr * Math.sin(th)
                                 if (i === 0)
                                     ctx.moveTo(px, py)
                                 else
@@ -487,7 +490,7 @@ FocusScope {
                             ctx.stroke()
 
                             if (walkthrough.step === 0) {
-                                // Step 0: Phone hex + glowing honeycomb bridge + PC hex
+                                // Step 0: phone cookie + glowing bridge + PC cookie
                                 ctx.strokeStyle = primaryGlow
                                 ctx.lineWidth = 2.0
                                 ctx.beginPath()
